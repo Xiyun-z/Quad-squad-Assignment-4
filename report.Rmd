@@ -1,0 +1,128 @@
+---
+title: "Research on COVID-19 vaccination"
+author:
+- familyname: Anukarnsakulchularp
+  othernames: Krisanat
+  address: Monash University
+  email: kanu0003@student.monash.edu
+  correspondingauthor: true
+  qualifications:  Master of Business Analytics
+- familyname: Vatsal
+  othernames: Kumar
+  address: Monash University
+  email: kvat0001@student.monash.edu
+  correspondingauthor: true
+  qualifications:  Master of Business Analytics
+- familyname: Zhou
+  othernames: Xiyun 
+  address: Monash University
+  email: xzho0054@student.monash.edu
+  correspondingauthor: true
+  qualifications:  Master of Actuarial Studies
+- familyname: Hu
+  othernames: Xinyu
+  address: Monash University
+  email: xhu103@student.monash.edu
+  correspondingauthor: true
+  qualifications:  Master of Applied Economics and Econometrics  
+department: Subject ETC5513\newline Group Name\newline Quad Squad
+organization: Monash University
+bibliography: references.bib
+biblio-style: authoryear-comp
+linestretch: 1.5
+output:
+  bookdown::pdf_document2:
+    template: monashreport2.tex
+    fig_caption: yes
+    fig_height: 5
+    fig_width: 8
+    includes:
+      in_header: preamble.tex
+    keep_tex: yes
+    number_sections: yes
+    citation_package: biblatex
+    toc: false
+---
+
+```{r , echo = FALSE, message = FALSE, warning = FALSE}
+# Libraries
+
+library(tidyverse)
+library(readr)
+library(kableExtra)
+library(bookdown)
+
+```
+
+
+\clearpage
+# **Data set introduction** 
+
+The data set for this report was obtained from the World Bank database, and it contains the following information:
+
+  \begin{itemize}
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+    \item 
+  \end{itemize}
+
+
+\clearpage
+
+# **Research questions** :
+
+
+
+
+\clearpage
+
+
+# **Exploratory data analysis** 
+
+\section*{}
+
+
+
+
+
+
+\clearpage
+
+
+\section*{}
+
+Question 1
+
+
+
+\clearpage
+
+
+
+
+
+**Research Question 2**
+
+
+
+
+
+
+
+\clearpage
+
+
+\section*{}
+
+
+
+
+\section*{}
+
+
+
+**CONCLUSIONS**
+
