@@ -51,6 +51,11 @@ library(tidyverse)
 library(readr)
 library(kableExtra)
 library(bookdown)
+library(knitr)
+```
+
+```{r message=FALSE,warning=FALSE, echo=FALSE}
+data <- read.csv(here::here("Data/owid-covid-data.csv"))
 
 ```
 
@@ -94,7 +99,7 @@ The data set for this report was obtained from the World Bank database, and it c
 
 \section*{}
 
-Question 1
+**Research Question 1**
 
 
 
@@ -113,6 +118,42 @@ Question 1
 
 
 \clearpage
+
+**Research Question 3**
+
+```{r table, echo=FALSE, message=FALSE, warning=FALSE}
+data2 <- data %>% 
+  filter(location %in% c("United States","Brazil","India","Russia","Mexico")) %>% 
+  select(location,continent,date,people_fully_vaccinated,new_deaths,new_vaccinations,new_cases,total_cases,population)
+
+
+table1 <- data2 %>%  
+  group_by(location) %>% 
+  summarise(average_vaccinations_per_day = round(mean(new_vaccinations, na.rm = TRUE )), average_deaths_per_day = round(mean(new_deaths, na.rm = TRUE) ) ) %>% 
+  arrange(desc(average_deaths_per_day))
+
+ kable(table1, caption = "Average daily vaccinations and deaths for the countries with highest death rates.") %>% 
+  kable_classic(full_width = F, html_font = "Cambria") %>% 
+    kable_styling(latex_options = c("striped", "hold_position"))
+
+```
+
+Table \@ref(tab:table) shows the average daily vaccinations and deaths for the countries with highest death rates. We can see that **United States** has the highest deaths per day of *1264* while **India** has the highest average vaccinations per day of approx *4057187*.
+
+
+```{r fig.cap="Relationship between new deaths and vaccination status " , echo=FALSE, message=FALSE,warning=FALSE}
+ggplot(data2, aes(x= (people_fully_vaccinated), 
+                  y = new_deaths, color = location)) + geom_point() +
+  facet_wrap(~location, scales = "free" )+
+  theme_dark() +
+  theme(axis.text.x = element_text(angle = 45,hjust = 1)) +
+  xlab("Number of people fully vaccinated")+
+  ylab("New Deaths")
+
+```
+
+
+
 
 
 \section*{}
