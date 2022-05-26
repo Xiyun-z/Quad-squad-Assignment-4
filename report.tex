@@ -21,7 +21,7 @@
 \PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
 \usepackage[unicode=true]{hyperref}
 \hypersetup{
-            pdftitle={Research on COVID-19 vaccination},
+            pdftitle={Research on COVID-19 and vaccination},
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
@@ -49,7 +49,7 @@
 \makeatother
 
 
-\title{Research on COVID-19 vaccination}
+\title{Research on COVID-19 and vaccination}
 
 %% MONASH STUFF
 
@@ -296,41 +296,126 @@
 
 \clearpage
 
-\hypertarget{data-set-introduction}{%
-\section{\texorpdfstring{\textbf{Data set introduction}}{Data set introduction}}\label{data-set-introduction}}
+\hypertarget{introduction}{%
+\section{\texorpdfstring{\textbf{Introduction}}{Introduction}}\label{introduction}}
 
-The data set for this report was obtained from the World Bank database, and it contains the following information:
+Since the first outbreak of Covid-19 in late 2019, there have been more than 500 million confirmed cases. To curb the spread, governments around the world had taken several measures like imposing restrictions on travelling, lockdown, and introducing social-distance.
 
-\begin{itemize}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-  \end{itemize}
+To bring this pandemic to an end, a large share of the world needs to be immune to the virus. The safest way to achieve this is with a vaccine. Vaccines are a technology that humanity has often relied on in the past to bring down the death toll of infectious diseases.
+
+Fortunately in 2021, COVID-19 vaccines were introduced, it would require an incredibly-high vaccination rate to reduce the spread of the virus. Although the vaccines are not able to prevent infection, yet they are efficient at keeping the mortality rate low. ``You may wonder if the vaccine is so effective, why are we still having a growth in the infection rate.''
+
+We collected data from a public data base in github \href{https://github.com/owid/covid-19-data/tree/master/public/data}{COVID-19 data}. In this report, we focus on overall COVID-19 analysis and explore the relationship between the pandemic and the vaccination by the world range.
+
+The packages we will be using in this analysis are \textcite{tidyverse}, \textcite{readr}, \textcite{kableExtra}, \textcite{bookdown}, \textcite{bookdown2}, and \textcite{ggplot2}
 
 \clearpage
 
 \hypertarget{research-questions}{%
 \section{\texorpdfstring{\textbf{Research questions} :}{Research questions :}}\label{research-questions}}
 
+\textbf{1)The overall analysis of COVID-19.}
+
+\textbf{2)The Effects of government policies on the spread of COVID- 19 worldwide.}
+
+\textbf{3)How do positive cases change relate to vaccination?}
+
+\textbf{4)How do death rates from COVID-19 differ between people who are vaccinated and those who are not?}
+
 \clearpage
 
 \hypertarget{exploratory-data-analysis}{%
 \section{\texorpdfstring{\textbf{Exploratory data analysis}}{Exploratory data analysis}}\label{exploratory-data-analysis}}
 
-\section*{}
+\hypertarget{the-overall-analysis-of-covid-19}{%
+\subsection{\texorpdfstring{\textbf{The overall analysis of covid-19}}{The overall analysis of covid-19}}\label{the-overall-analysis-of-covid-19}}
+
+\begin{figure}
+
+{\centering \includegraphics{report_files/figure-latex/Figure1-1} 
+
+}
+
+\caption{COVID-19 Daily new cases}\label{fig:Figure1}
+\end{figure}
+
+The line chart \ref{fig:Figure1} indicate from January 2021 to May 2022, the daily new cases show an upward trend. There are 3 times breakout in most regions, which occurs in the May 2021, August 2021, and February 2022. Especially in the past few months, the average daily cases reach to the highest point. Some countries in Europe and North America region have more than 1 million new cases every day. And European countries always have the highest daily cases in this period.
+
+\begin{table}[!h]
+
+\caption{\label{tab:Table1}Countries with Highest Average Daily Cases}
+\centering
+\begin{tabular}[t]{l|r}
+\hline
+location & average daily cases\\
+\hline
+\cellcolor{gray!6}{United States} & \cellcolor{gray!6}{120485}\\
+\hline
+India & 70729\\
+\hline
+\cellcolor{gray!6}{France} & \cellcolor{gray!6}{56649}\\
+\hline
+Germany & 50097\\
+\hline
+\cellcolor{gray!6}{Brazil} & \cellcolor{gray!6}{46861}\\
+\hline
+\end{tabular}
+\end{table}
+
+Table \ref{tab:Table1} list the top 5 countries with the highest average daily cases. The average daily cases are more than 1 million in United State.
+In the following, the countries in the table will be utilised to examine the relationship between vaccination and daily new cases.
+
+\begin{figure}
+
+{\centering \includegraphics{report_files/figure-latex/Figure2-1} 
+
+}
+
+\caption{Average daily deaths attributed to COVID-19}\label{fig:Figure2}
+\end{figure}
+
+The overall of graph \ref{fig:Figure2} show a decline trend of average daily deaths attributed to COVID-19. The North America area has the greatest daily deaths in early 2021, and then the number of deaths drops dramatically beginning in May 2021. After October 2021, the average daily death toll in North America never exceed 500.
+
+\begin{table}[!h]
+
+\caption{\label{tab:Table2}COVID-19 Highest Average Daily Deaths Countries}
+\centering
+\begin{tabular}[t]{l|r}
+\hline
+location & average daily deaths\\
+\hline
+\cellcolor{gray!6}{United States} & \cellcolor{gray!6}{1201}\\
+\hline
+Brazil & 978\\
+\hline
+\cellcolor{gray!6}{India} & \cellcolor{gray!6}{798}\\
+\hline
+Russia & 662\\
+\hline
+\cellcolor{gray!6}{Mexico} & \cellcolor{gray!6}{396}\\
+\hline
+\end{tabular}
+\end{table}
+
+Table \ref{tab:Table2} list the top 5 countries with the highest average daily deaths caused by COVID-19.
+In the following, the countries in the table will be using to analyse the relationship between vaccination and daily deaths.
+
+\begin{figure}
+
+{\centering \includegraphics{report_files/figure-latex/Figure3-1} 
+
+}
+
+\caption{People fully vaccinated in percentage by region}\label{fig:Figure3}
+\end{figure}
+
+The barplot \ref{fig:Figure3} shows the fully vaccination rate by regions. Except Africa region, the fully vaccinated rate over 50\% in other continent. According to the research \textcite{African-COVID-19-vaccination}, at the end of December 2021, only 7 African countries with relatively smaller populations (Seychelles, Mauritius, Morocco, Tunisia, Comoros, Botswana, and Cape Verde) met the 40\% target. The African continent's fundamentally deficient health systems are undoubtedly leading to insufficient COVID-19 vaccination capability.
 
 \clearpage
 
 \section*{}
 
-Question 1
-
 \clearpage
-
-\textbf{Research Question 2}
 
 \clearpage
 
@@ -338,7 +423,10 @@ Question 1
 
 \section*{}
 
-\textbf{CONCLUSIONS}
+\hypertarget{conclusions}{%
+\section{\texorpdfstring{\textbf{CONCLUSIONS}}{CONCLUSIONS}}\label{conclusions}}
+
+Globally, after the continued decline observed since the end of March 2022, new daily COVID-19 cases have stabilized in the latest weeks. And the number of new daily deaths continues to decline.
 
 \printbibliography
 
