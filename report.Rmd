@@ -248,7 +248,7 @@ dat_2 %>%
        title = "Relationship between Total Cases and Stringency index")
 ```
 
-We used log transformation on the number of cases to transform the skewed data. In Figure \@ref (fig:relationship-tot-index), we can see that there is a non-linear relationship between total cases and stringency index. The total case number keeps climbing even after implementing the restriction. Then it dropped as the restriction get stricter. This is because most of the time the government will start with the lower level of restriction but this won’t have much effect on reducing the number of COVID-19 cases since the transmission of the COVID will occur before the lockdown started. Then, as the restriction increases and the longer people are staying at home, the number of total cases decreases. Therefore, we see the number of total cases climbing at first before the number goes down.
+We used log transformation on the number of cases to transform the skewed data. In Figure \@ref(fig:relationship-tot-index), we can see that there is a non-linear relationship between total cases and stringency index. The total case number keeps climbing even after implementing the restriction. Then it dropped as the restriction get stricter. This is because most of the time the government will start with the lower level of restriction but this won’t have much effect on reducing the number of COVID-19 cases since the transmission of the COVID will occur before the lockdown started. Then, as the restriction increases and the longer people are staying at home, the number of total cases decreases. Therefore, we see the number of total cases climbing at first before the number goes down.
 
 
 \clearpage
@@ -312,7 +312,7 @@ ggplot(data = top5, aes(x=people_fully_vaccinated, y = new_cases))+
   facet_wrap(~location, scales = "free")
 ```
 
-We sorted out countries by the order of mean new daily cases, referring \@ref(tab: table3), the table showcases top 10 countries with highest mean value of daily cases, our research onward will based on the top 5 countries, US, Brazil, India, Germany, France. From table \@ref(tab:table3), United States has the highest daily cases and India did the best in terms of vaccination.
+We sorted out countries by the order of mean new daily cases, referring \@ref(tab:table3), the table showcases top 10 countries with highest mean value of daily cases, our research onward will based on the top 5 countries, US, Brazil, India, Germany, France. From table \@ref(tab:table3), United States has the highest daily cases and India did the best in terms of vaccination.
 
 Line chart \@ref(fig:figure4) showcases the trend of new cases and fully vaccinated people from 2021 to latest data, and from the line chart, there is no corresponding effect between them. @lipsitch2020understanding mentioned that the effectiveness of vaccination varies within different condition of health, however, both direct and indirect protection reduce virus symptoms generally. 
 
@@ -358,14 +358,9 @@ For the countries like Russia and United States the case is a little different a
 A research published @paper also confirmed that double vaccination against COVID-19 will decrease the death rate by 74.89 %
 
 
-
-
 # **CONCLUSIONS**
 
-Globally, after the continued decline observed since the end of March 2022, new daily COVID-19 cases have stabilized in the latest weeks. And the number of new daily deaths continues to decline. 
-
-The vaccination seems to not affect the spread of the virus due to mutation.
-From the findings above it is clear that vaccination against COVID-19 is not the sure shot method to prevent the disease but it is still one of the best and safest way to prevent the spread of a pandemic like this.
+Globally, after the decline in the number of total cases since the end of March 2022, new daily COVID-19 cases have stabilized in the latest weeks and the number of deaths continues to decline. The introduction of Vaccines in 2021, raises the question of whether restrictions will still be effective against the spread of the COVID-19. In this report we can see that the restriction policies can reduce the spread of the virus, however, this method does not have an immediate effect as the spread occurs before the restriction. We also found that the vaccination seems to not affect the spread of the virus due to the mutation. It is clear that vaccination against COVID-19 is not the best method to reduce the number of cases but it is still one of the best and safest ways to reduces the number of deaths.
 
 
 \clearpage

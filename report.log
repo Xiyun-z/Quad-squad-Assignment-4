@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.7)  27 MAY 2022 04:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.7)  27 MAY 2022 05:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1420,7 +1420,7 @@ Package pdftex.def Info: report_files/figure-latex/relationship-tot-index-1.pdf 
 [8
 
  <./report_files/figure-latex/relationship-tot-index-1.pdf>]
-<report_files/figure-latex/figure4-1.pdf, id=152, 433.62pt x 252.945pt>
+<report_files/figure-latex/figure4-1.pdf, id=153, 433.62pt x 252.945pt>
 File: report_files/figure-latex/figure4-1.pdf Graphic file (type pdf)
 <use report_files/figure-latex/figure4-1.pdf>
 Package pdftex.def Info: report_files/figure-latex/figure4-1.pdf  used on input line 487.
@@ -1428,7 +1428,7 @@ Package pdftex.def Info: report_files/figure-latex/figure4-1.pdf  used on input 
 [9
 
  <./report_files/figure-latex/figure4-1.pdf>]
-<report_files/figure-latex/figure5-1.pdf, id=164, 433.62pt x 252.945pt>
+<report_files/figure-latex/figure5-1.pdf, id=165, 433.62pt x 252.945pt>
 File: report_files/figure-latex/figure5-1.pdf Graphic file (type pdf)
 <use report_files/figure-latex/figure5-1.pdf>
 Package pdftex.def Info: report_files/figure-latex/figure5-1.pdf  used on input line 500.
@@ -1436,7 +1436,7 @@ Package pdftex.def Info: report_files/figure-latex/figure5-1.pdf  used on input 
 [10
 
  <./report_files/figure-latex/figure5-1.pdf>]
-<report_files/figure-latex/graph-1.pdf, id=186, 433.62pt x 252.945pt>
+<report_files/figure-latex/graph-1.pdf, id=188, 433.62pt x 252.945pt>
 File: report_files/figure-latex/graph-1.pdf Graphic file (type pdf)
 <use report_files/figure-latex/graph-1.pdf>
 Package pdftex.def Info: report_files/figure-latex/graph-1.pdf  used on input line 542.
@@ -1447,7 +1447,7 @@ Package pdftex.def Info: report_files/figure-latex/graph-1.pdf  used on input li
 
 ]
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 9.24173pt on input line 567.
+(Font)              scaled to size 9.24173pt on input line 564.
 [13
 
 ] (./report.aux)
@@ -1459,17 +1459,17 @@ Package logreq Info: Writing requests to 'report.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  27722 strings out of 480260
- 486122 string characters out of 5892849
+ 486130 string characters out of 5892849
  1188751 words of memory out of 5000000
  44834 multiletter control sequences out of 15000+600000
  577671 words of font info for 328 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  60i,14n,93p,1357b,1462s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/ottoi/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{c:/Users/ottoi/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/ly1/texnansi.enc}{c:/Users/ottoi/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.enc}<c:/Users/ottoi/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/fontawesome/FontAwesome.pfb><c:/Users/ottoi/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb><c:/Users/ottoi/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb><c:/Users/ottoi/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb><c:/Users/ottoi/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb><c:/Users/ottoi/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/bera/fvsb8a.pfb><c:/Users/ottoi/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/bera/fvsr8a.pfb><c:/Users/ottoi/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr8t.pfb>
-Output written on report.pdf (13 pages, 3798765 bytes).
+Output written on report.pdf (13 pages, 3798797 bytes).
 PDF statistics:
- 273 PDF objects out of 1000 (max. 8388607)
- 222 compressed objects within 3 object streams
+ 275 PDF objects out of 1000 (max. 8388607)
+ 224 compressed objects within 3 object streams
  54 named destinations out of 1000 (max. 500000)
  77934 words of extra memory for PDF output out of 89155 (max. 10000000)
 
