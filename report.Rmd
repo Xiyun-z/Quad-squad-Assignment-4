@@ -71,6 +71,10 @@ library(knitr)
 library(ggplot2) 
 library(tidyverse)
 
+```
+
+```{r message=FALSE,warning=FALSE, echo=FALSE}
+data <- read.csv(here::here("Data/owid-covid-data.csv"))
 
 ```
 
@@ -129,7 +133,6 @@ The packages we will be using in this analysis are @tidyverse, @readr, @kableExt
 ##data sanitize 
 covid_data <- read_csv("Data/owid-covid-data.csv")
 f_d<-filter(covid_data, date >= as.Date("2021-01-30"))
-
 COVID_dat_after_sanitize<- select(f_d,location|continent|  date|people_fully_vaccinated|people_fully_vaccinated_per_hundred|new_cases|total_cases|new_deaths|new_deaths_per_million|total_deaths_per_million)  %>% 
   na.omit()
 
@@ -156,10 +159,6 @@ The line chart \@ref(fig:Figure1) indicate from January 2021 to May 2022, the da
  
  
  
- 
- 
-
-  
 ```{r Table1, echo = FALSE, warning=FALSE}
 
 sum <- COVID_dat_after_sanitize %>%
@@ -191,11 +190,16 @@ new_dat %>% ggplot(aes(x=date, y=daily_mean_deaths))+
 
 
 ```
+
+
+
 The overall of graph \@ref(fig:Figure2) show a decline trend of average daily deaths attributed to COVID-19. The North America area has the greatest daily deaths in early 2021, and then the number of deaths drops dramatically beginning in May 2021. After October 2021, the average daily death toll in North America never exceed 500. 
+
+
 
 ```{r Table2,  echo = FALSE, warning = FALSE} 
 
-options(digits=0)
+#options(digits=0)
 
 sum %>% select(location,`average daily deaths`) %>% 
   arrange(round(desc(`average daily deaths`)), 0) %>%
@@ -203,8 +207,12 @@ sum %>% select(location,`average daily deaths`) %>%
    kable("latex", caption = "COVID-19 Highest Average Daily Deaths Countries") %>% 
     kable_styling(latex_options = c("striped", "hold_position")) 
 ```
+
+
+
 Table \@ref(tab:Table2) list the top 5 countries with the highest average daily deaths caused by COVID-19. 
 In the following, the countries in the table will be using to analyse the relationship between vaccination and daily deaths.
+
 
 ```{r Figure3, echo = FALSE, warining=FALSE, fig.width = 6, fig.align="center", fig.cap = "People fully vaccinated in percentage by region"}
 
@@ -221,18 +229,24 @@ ggplot(aes(x=continent,
 geom_bar(stat='identity')
 
 ```
+
+
+
 The barplot \@ref(fig:Figure3) shows the fully vaccination rate by regions. Except Africa region, the fully vaccinated rate over 50% in other continent.  According to the research @African-COVID-19-vaccination, at the end of December 2021, only 7 African countries with relatively smaller populations (Seychelles, Mauritius, Morocco, Tunisia, Comoros, Botswana, and Cape Verde) met the 40% target. The African continent's fundamentally deficient health systems are undoubtedly leading to insufficient COVID-19 vaccination capability.
 
 
 \clearpage
+
+
 
 \section*{ How do positive cases change relate to vaccination?}
 
 
 \subsection*{top 5 countries with highest daily new cases}
 
+
 ```{r table3, echo = FALSE, message = FALSE, warning = FALSE,fig.cap= "top 10 countries with highest daily cases"}
-options(digits = 0)
+#options(digits = 0)
 
 sum_dat1<-dat %>% 
   group_by(location)%>%
@@ -245,13 +259,19 @@ sum_dat1<-dat %>%
 
 ```
 
+
+
 ```{r  echo = FALSE, message = FALSE, warning = FALSE, results = 'hide'}
 top5 <- dat%>%
   filter(location %in% c("United States", "India", "France", "Germany", "Brazil"))%>%
   select(!X)
 ```
 
+
+
 \subsection*{Trend of trend of new cases vs fully vaccinated}
+
+
 ```{r figure4, echo = FALSE, message = FALSE, warning = FALSE, results = 'hide' ,fig.cap = "trend of new cases vs fully vaccinated"}
 p1<-ggplot(data = top5, aes(x = base::as.Date(date), y = new_cases, colour = location ))+
   geom_line() +
@@ -269,11 +289,13 @@ gridExtra::grid.arrange(p1, p2, nrow=2)
 ```
 
 
-
 \clearpage
 
 
 \subsection*{Trend of trend of new cases vs fully vaccinated}
+
+
+
 ```{r figure5, echo = FALSE, message = FALSE, warning = FALSE, fig.width = 6, results = 'hide' ,error = FALSE, fig.cap = "correlation between new cases vs fully vaccinated"}
 ggplot(data = top5, aes(x=people_fully_vaccinated, y = new_cases))+
   geom_point()+
@@ -282,6 +304,9 @@ ggplot(data = top5, aes(x=people_fully_vaccinated, y = new_cases))+
   facet_wrap(~location, scales = "free")
 
 ```
+
+
+
 
 We sorted out countries by the order of mean new daily cases, referring \@ref(tab: table3), the table showcases top 10 countries with highest mean value of daily cases, our research onward will based on the top 5 countries, US, Brazil, India, Germany, France. From table \@ref(tab:table3), United States has the highest daily cases and India did the best in terms of vaccination.
 
@@ -293,8 +318,52 @@ Plot chart \@ref(fig:figure5) was generate to explore relationship between vacci
 
 
 \clearpage
+
+
 \section*{ How do death rates from COVID-19 differ between people who are vaccinated and those who are not}
 
+
+
+**Research Question 3**
+
+
+```{r table, echo=FALSE, message=FALSE, warning=FALSE}
+data2 <- data %>% 
+  filter(location %in% c("United States","Brazil","India","Russia","Mexico")) %>% 
+  select(location,continent,date,people_fully_vaccinated,new_deaths,new_vaccinations,new_cases,total_cases,population)
+
+
+table1 <- data2 %>%  
+  group_by(location) %>% 
+  summarise(average_vaccinations_per_day = round(mean(new_vaccinations, na.rm = TRUE )), average_deaths_per_day = round(mean(new_deaths, na.rm = TRUE) ) ) %>% 
+  arrange(desc(average_deaths_per_day))
+
+ kable(table1, caption = "Average daily vaccinations and deaths for the countries with highest death rates.") %>% 
+  kable_classic(full_width = F, html_font = "Cambria") %>% 
+    kable_styling(latex_options = c("striped", "hold_position"))
+
+```
+
+Table \@ref(tab:table) shows the average daily vaccinations and deaths for the countries with highest death rates. We can see that **United States** has the highest deaths per day of *1264* while **India** has the highest average vaccinations per day of approx *4057187*.
+
+
+```{r graph, fig.cap="Relationship between new deaths and vaccination status " , echo=FALSE, message=FALSE,warning=FALSE, fig.align='center'}
+ggplot(data2, aes(x= (people_fully_vaccinated), 
+                  y = new_deaths, color = location)) + geom_point() +
+  facet_wrap(~location, scales = "free" )+
+  theme_dark() +
+  theme(axis.text.x = element_text(angle = 45,hjust = 1)) +
+  xlab("Number of people fully vaccinated")+
+  ylab("New Deaths")
+
+```
+
+
+From the figure \@ref(fig:graph) we can clearly see that in countries like Brazil, India and Mexico, there is a clear effect of vaccinations on the death rates. The death rates in the third wave (second peak of the graph) have fallen to around 25% of what they were in the second wave (first peak of the graph). 
+
+For the countries like Russia and United States the case is a little different as the vaccinations have increased but the number of deaths due to COVID-19 have remained constant or have increased. This may be due to many reasons such as the vaccine that was being used in the particular country, the immunity of the individual at the given location and the other Comorbidities they had. Also, the vaccine was designed using the first strain of COVID-19 virus and mutations caused in the virus might have affected the efficacy of the vaccine. 
+
+A research published @paper also confirmed that double vaccination against COVID-19 will decrease the death rate by 74.89 %
 
 
 
@@ -313,4 +382,5 @@ Plot chart \@ref(fig:figure5) was generate to explore relationship between vacci
 Globally, after the continued decline observed since the end of March 2022, new daily COVID-19 cases have stabilized in the latest weeks. And the number of new daily deaths continues to decline. 
 
 The vaccination seems to not affect the spread of the virus due to mutation.
+From the findings above it is clear that vaccination against COVID-19 is not the sure shot method to prevent the disease but it is still one of the best and safest way to prevent the spread of a pandemic like this.
 

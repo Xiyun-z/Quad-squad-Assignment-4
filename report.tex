@@ -382,15 +382,15 @@ The overall of graph \ref{fig:Figure2} show a decline trend of average daily dea
 \hline
 location & average daily deaths\\
 \hline
-\cellcolor{gray!6}{United States} & \cellcolor{gray!6}{1201}\\
+\cellcolor{gray!6}{United States} & \cellcolor{gray!6}{1200.9892}\\
 \hline
-Brazil & 978\\
+Brazil & 977.8126\\
 \hline
-\cellcolor{gray!6}{India} & \cellcolor{gray!6}{798}\\
+\cellcolor{gray!6}{India} & \cellcolor{gray!6}{797.7945}\\
 \hline
-Russia & 662\\
+Russia & 662.3771\\
 \hline
-\cellcolor{gray!6}{Mexico} & \cellcolor{gray!6}{396}\\
+\cellcolor{gray!6}{Mexico} & \cellcolor{gray!6}{396.0946}\\
 \hline
 \end{tabular}
 \end{table}
@@ -420,25 +420,26 @@ The barplot \ref{fig:Figure3} shows the fully vaccination rate by regions. Excep
 \caption{\label{tab:table3}top 10 countries with highest daily cases}
 \centering
 \begin{tabular}[t]{lrr}
-\toprule{}
+\toprule
 location & mean\_daily\_cases & mean\_new\_vax\\
-\midrule{}
-\cellcolor{gray!6}{United States} & \cellcolor{gray!6}{1.e+05} & \cellcolor{gray!6}{5.e+05}\\
-India & 7.e+04 & 2.e+06\\
-\cellcolor{gray!6}{France} & \cellcolor{gray!6}{6.e+04} & \cellcolor{gray!6}{1.e+05}\\
-Germany & 5.e+04 & 1.e+05\\
-\cellcolor{gray!6}{Brazil} & \cellcolor{gray!6}{5.e+04} & \cellcolor{gray!6}{4.e+05}\\
+\midrule
+\cellcolor{gray!6}{United States} & \cellcolor{gray!6}{120484.50} & \cellcolor{gray!6}{460807.1}\\
+India & 70728.59 & 2008029.1\\
+\cellcolor{gray!6}{France} & \cellcolor{gray!6}{56648.85} & \cellcolor{gray!6}{114807.6}\\
+Germany & 50096.89 & 138850.6\\
+\cellcolor{gray!6}{Brazil} & \cellcolor{gray!6}{46861.09} & \cellcolor{gray!6}{372419.6}\\
 \addlinespace
-South Korea & 4.e+04 & 1.e+05\\
-\cellcolor{gray!6}{United Kingdom} & \cellcolor{gray!6}{4.e+04} & \cellcolor{gray!6}{1.e+05}\\
-Italy & 3.e+04 & 1.e+05\\
-\cellcolor{gray!6}{Russia} & \cellcolor{gray!6}{3.e+04} & \cellcolor{gray!6}{2.e+05}\\
-Turkey & 3.e+04 & 1.e+05\\
-\bottomrule{}
+South Korea & 39991.02 & 102166.7\\
+\cellcolor{gray!6}{United Kingdom} & \cellcolor{gray!6}{38446.46} & \cellcolor{gray!6}{110154.3}\\
+Italy & 30754.16 & 102214.1\\
+\cellcolor{gray!6}{Russia} & \cellcolor{gray!6}{29094.76} & \cellcolor{gray!6}{203228.0}\\
+Turkey & 27831.21 & 119240.3\\
+\bottomrule
 \end{tabular}
 \end{table}
 
 \subsection*{Trend of trend of new cases vs fully vaccinated}
+
 \begin{figure}
 
 {\centering \includegraphics{report_files/figure-latex/figure4-1} 
@@ -451,6 +452,7 @@ Turkey & 3.e+04 & 1.e+05\\
 \clearpage
 
 \subsection*{Trend of trend of new cases vs fully vaccinated}
+
 \begin{figure}
 
 {\centering \includegraphics{report_files/figure-latex/figure5-1} 
@@ -467,7 +469,48 @@ Line chart \ref{fig:figure4} showcases the trend of new cases and fully vaccinat
 Plot chart \ref{fig:figure5} was generate to explore relationship between vaccination and new cases, with vaccination on x axis, daily cases in y axis, the graph did not show significant correlation between them, smooth line was added to overview general movement. the graph further prove there is no expected higher vaccination with lower infections in the top 5 countries. \textcite{chen2021prediction} discussed the how mutation reduce the effectiveness of vaccination in terms of infection protection, and the research team mentioned we need to develop vaccine to deal with predicted mutation.
 
 \clearpage
+
 \section*{ How do death rates from COVID-19 differ between people who are vaccinated and those who are not}
+
+\textbf{Research Question 3}
+
+\begin{table}[!h]
+
+\caption{\label{tab:table}Average daily vaccinations and deaths for the countries with highest death rates.}
+\centering
+\begin{tabular}[t]{l|r|r}
+\hline
+location & average\_vaccinations\_per\_day & average\_deaths\_per\_day\\
+\hline
+\cellcolor{gray!6}{United States} & \cellcolor{gray!6}{1135290} & \cellcolor{gray!6}{1246}\\
+\hline
+Brazil & 934008 & 847\\
+\hline
+\cellcolor{gray!6}{India} & \cellcolor{gray!6}{4057187} & \cellcolor{gray!6}{657}\\
+\hline
+Russia & 434410 & 472\\
+\hline
+\cellcolor{gray!6}{Mexico} & \cellcolor{gray!6}{444551} & \cellcolor{gray!6}{407}\\
+\hline
+\end{tabular}
+\end{table}
+
+Table \ref{tab:table} shows the average daily vaccinations and deaths for the countries with highest death rates. We can see that \textbf{United States} has the highest deaths per day of \emph{1264} while \textbf{India} has the highest average vaccinations per day of approx \emph{4057187}.
+
+\begin{figure}
+
+{\centering \includegraphics{report_files/figure-latex/graph-1} 
+
+}
+
+\caption{Relationship between new deaths and vaccination status }\label{fig:graph}
+\end{figure}
+
+From the figure \ref{fig:graph} we can clearly see that in countries like Brazil, India and Mexico, there is a clear effect of vaccinations on the death rates. The death rates in the third wave (second peak of the graph) have fallen to around 25\% of what they were in the second wave (first peak of the graph).
+
+For the countries like Russia and United States the case is a little different as the vaccinations have increased but the number of deaths due to COVID-19 have remained constant or have increased. This may be due to many reasons such as the vaccine that was being used in the particular country, the immunity of the individual at the given location and the other Comorbidities they had. Also, the vaccine was designed using the first strain of COVID-19 virus and mutations caused in the virus might have affected the efficacy of the vaccine.
+
+A research published \textcite{paper} also confirmed that double vaccination against COVID-19 will decrease the death rate by 74.89 \%
 
 \clearpage
 \section*{}
@@ -481,6 +524,7 @@ Plot chart \ref{fig:figure5} was generate to explore relationship between vaccin
 Globally, after the continued decline observed since the end of March 2022, new daily COVID-19 cases have stabilized in the latest weeks. And the number of new daily deaths continues to decline.
 
 The vaccination seems to not affect the spread of the virus due to mutation.
+From the findings above it is clear that vaccination against COVID-19 is not the sure shot method to prevent the disease but it is still one of the best and safest way to prevent the spread of a pandemic like this.
 
 \printbibliography
 
