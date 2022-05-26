@@ -331,7 +331,7 @@ The data set for this report was obtained from the World Bank database, and it c
 
 \begin{table}[!h]
 
-\caption{\label{tab:tab-vax-cases}top 10 countries with highest daily cases}
+\caption{\label{tab:tab1}top 10 countries with highest daily cases}
 \centering
 \begin{tabular}[t]{lrr}
 \toprule{}
@@ -352,28 +352,35 @@ Turkey & 27831 & 119240\\
 \end{tabular}
 \end{table}
 
-\clearpage
 \subsection*{Trend of trend of new cases vs fully vaccinated}
 \begin{figure}
 
-{\centering \includegraphics{report_files/figure-latex/trend-vax-cases-1} 
+{\centering \includegraphics{report_files/figure-latex/fig2-1} 
 
 }
 
-\caption{trend of new cases vs fully vaccinated}\label{fig:trend-vax-cases}
+\caption{trend of new cases vs fully vaccinated}\label{fig:fig2}
 \end{figure}
 
 \clearpage
+
 \subsection*{Trend of trend of new cases vs fully vaccinated}
 
 \begin{figure}
 
-{\centering \includegraphics{report_files/figure-latex/vax-cases-1} 
+{\centering \includegraphics{report_files/figure-latex/fig3-1} 
 
 }
 
-\caption{correlation between new cases vs fully vaccinated}\label{fig:vax-cases}
+\caption{correlation between new cases vs fully vaccinated}\label{fig:fig3}
 \end{figure}
+
+We sorted out countries by the order of mean new daily cases, referring @ref(tab: tab1), the table showcases top 10 countries with highest mean value of daily cases, our research onward will based on the top 5 countries, US, Brazil, India, Germany, France. From table \ref{tab:tab1}, United States has the highest daily cases and India did the best in terms of vaccination.
+
+Line chart \ref{fig:fig2} showcases the trend of new cases and fully vaccinated people from 2021 to latest data, and from the line chart, there is no corresponding effect between them. \textcite{lipsitch2020understanding} mentioned that the effectiveness of vaccination varies within different condition of health, however, both direct and indirect protection reduce virus symptoms generally.
+
+Plot chart \ref{fig:fig3} was generate to explore relationship between vaccination and new cases, with vaccination on x axis, daily cases in y axis, the graph did not show significant correlation between them, smooth line was added to overview general movement. the graph further prove there is no expected higher vaccination with lower infections in the top 5 countries. \textcite{chen2021prediction} discussed the how mutation reduce the effectiveness of vaccination in terms of infection protection, and the research team mentioned we need to develop vaccine to deal with predicted mutation.
+
 \clearpage
 
 \textbf{Research Question 3}

@@ -123,7 +123,7 @@ The data set for this report was obtained from the World Bank database, and it c
 \subsection*{top 5 countries with highest daily new cases}
 
 
-```{r tab-vax-cases, echo = FALSE, message = FALSE, warning = FALSE,fig.cap= "top 10 countries with highest daily cases"}
+```{r tab1, echo = FALSE, message = FALSE, warning = FALSE,fig.cap= "top 10 countries with highest daily cases"}
 sum_dat1<-dat %>% 
   group_by(location)%>%
   mutate(new_people_fully_vaccinated = people_fully_vaccinated- lag(people_fully_vaccinated))%>%
@@ -136,15 +136,15 @@ sum_dat1<-dat %>%
 ```
 
 
+
 ```{r  echo = FALSE, message = FALSE, warning = FALSE, results = 'hide'}
 top5 <- dat%>%
   filter(location %in% c("United States", "India", "France", "Germany", "Brazil"))%>%
   select(!X)
 ```
 
-\clearpage
 \subsection*{Trend of trend of new cases vs fully vaccinated}
-```{r trend-vax-cases, echo = FALSE, message = FALSE, warning = FALSE, results = 'hide' ,fig.cap = "trend of new cases vs fully vaccinated"}
+```{r fig2, echo = FALSE, message = FALSE, warning = FALSE, results = 'hide' ,fig.cap = "trend of new cases vs fully vaccinated"}
 p1<-ggplot(data = top5, aes(x = base::as.Date(date), y = new_cases, colour = location ))+
   geom_line() +
   theme_bw() +
@@ -161,9 +161,10 @@ gridExtra::grid.arrange(p1, p2, nrow=2)
 ```
 
 \clearpage
+
 \subsection*{Trend of trend of new cases vs fully vaccinated}
 
-```{r vax-cases, echo = FALSE, message = FALSE, warning = FALSE, results = 'hide' ,error = FALSE, fig.cap = "correlation between new cases vs fully vaccinated"}
+```{r fig3, echo = FALSE, message = FALSE, warning = FALSE, fig.width = 6, results = 'hide' ,error = FALSE, fig.cap = "correlation between new cases vs fully vaccinated"}
 ggplot(data = top5, aes(x=people_fully_vaccinated, y = new_cases))+
   geom_point()+
   geom_smooth()+
@@ -171,6 +172,13 @@ ggplot(data = top5, aes(x=people_fully_vaccinated, y = new_cases))+
   facet_wrap(~location, scales = "free")
 
 ```
+
+We sorted out countries by the order of mean new daily cases, referring \@ref(tab: tab1), the table showcases top 10 countries with highest mean value of daily cases, our research onward will based on the top 5 countries, US, Brazil, India, Germany, France. From table \@ref(tab:tab1), United States has the highest daily cases and India did the best in terms of vaccination.
+
+Line chart \@ref(fig:fig2) showcases the trend of new cases and fully vaccinated people from 2021 to latest data, and from the line chart, there is no corresponding effect between them. @lipsitch2020understanding mentioned that the effectiveness of vaccination varies within different condition of health, however, both direct and indirect protection reduce virus symptoms generally. 
+
+Plot chart \@ref(fig:fig3) was generate to explore relationship between vaccination and new cases, with vaccination on x axis, daily cases in y axis, the graph did not show significant correlation between them, smooth line was added to overview general movement. the graph further prove there is no expected higher vaccination with lower infections in the top 5 countries. @chen2021prediction discussed the how mutation reduce the effectiveness of vaccination in terms of infection protection, and the research team mentioned we need to develop vaccine to deal with predicted mutation.
+
 \clearpage
 **Research Question 3**
 \section*{How do ICU rates from COVID-19 relates to population of vaccination}
