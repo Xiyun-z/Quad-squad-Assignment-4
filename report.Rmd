@@ -141,7 +141,7 @@ table1 <- data2 %>%
 Table \@ref(tab:table) shows the average daily vaccinations and deaths for the countries with highest death rates. We can see that **United States** has the highest deaths per day of *1264* while **India** has the highest average vaccinations per day of approx *4057187*.
 
 
-```{r fig.cap="Relationship between new deaths and vaccination status " , echo=FALSE, message=FALSE,warning=FALSE}
+```{r graph, fig.cap="Relationship between new deaths and vaccination status " , echo=FALSE, message=FALSE,warning=FALSE, fig.align='center'}
 ggplot(data2, aes(x= (people_fully_vaccinated), 
                   y = new_deaths, color = location)) + geom_point() +
   facet_wrap(~location, scales = "free" )+
@@ -153,8 +153,11 @@ ggplot(data2, aes(x= (people_fully_vaccinated),
 ```
 
 
+From the figure \@ref(fig:graph) we can clearly see that in countries like Brazil, India and Mexico, there is a clear effect of vaccinations on the death rates. The death rates in the third wave (second peak of the graph) have fallen to around 25% of what they were in the second wave (first peak of the graph). 
 
+For the countries like Russia and United States the case is a little different as the vaccinations have increased but the number of deaths due to COVID-19 have remained constant or have increased. This may be due to many reasons such as the vaccine that was being used in the particular country, the immunity of the individual at the given location and the other Comorbidities they had. Also, the vaccine was designed using the first strain of COVID-19 virus and mutations caused in the virus might have affected the efficacy of the vaccine. 
 
+A research published @paper also confirmed that double vaccination against COVID-19 will decrease the death rate by 74.89 %
 
 \section*{}
 

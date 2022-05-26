@@ -289,6 +289,7 @@
 \usepackage{threeparttablex}
 \usepackage[normalem]{ulem}
 \usepackage{makecell}
+\usepackage{xcolor}
 
 
 \begin{document}
@@ -326,13 +327,52 @@ The data set for this report was obtained from the World Bank database, and it c
 
 \section*{}
 
-Question 1
+\textbf{Research Question 1}
 
 \clearpage
 
 \textbf{Research Question 2}
 
 \clearpage
+
+\textbf{Research Question 3}
+
+\begin{table}[!h]
+
+\caption{\label{tab:table}Average daily vaccinations and deaths for the countries with highest death rates.}
+\centering
+\begin{tabular}[t]{l|r|r}
+\hline
+location & average\_vaccinations\_per\_day & average\_deaths\_per\_day\\
+\hline
+\cellcolor{gray!6}{United States} & \cellcolor{gray!6}{1135290} & \cellcolor{gray!6}{1246}\\
+\hline
+Brazil & 934008 & 847\\
+\hline
+\cellcolor{gray!6}{India} & \cellcolor{gray!6}{4057187} & \cellcolor{gray!6}{657}\\
+\hline
+Russia & 434410 & 472\\
+\hline
+\cellcolor{gray!6}{Mexico} & \cellcolor{gray!6}{444551} & \cellcolor{gray!6}{407}\\
+\hline
+\end{tabular}
+\end{table}
+
+Table \ref{tab:table} shows the average daily vaccinations and deaths for the countries with highest death rates. We can see that \textbf{United States} has the highest deaths per day of \emph{1264} while \textbf{India} has the highest average vaccinations per day of approx \emph{4057187}.
+
+\begin{figure}
+
+{\centering \includegraphics{report_files/figure-latex/graph-1} 
+
+}
+
+\caption{Relationship between new deaths and vaccination status }\label{fig:graph}
+\end{figure}
+
+From the figure \ref{fig:graph} we can clearly see that in countries like Brazil, India and Mexico, there is a clear effect of vaccinations on the death rates. The death rates in the third wave (second peak of the graph) have fallen to around 25\% of what they were in the second wave (first peak of the graph).
+For the countries like Russia and United States the case is a little different as the vaccinations have increased but the number of deaths due to COVID-19 have remained constant or have increased. This may be due to many reasons such as the vaccine that was being used in the particular country, the immunity of the individual at the given location. Also, the vaccine was designed using the first strain of COVID-19 virus and mutations caused in the virus might have affected the efficacy of the vaccine.
+
+A research published \textcite{paper} also confirmed that double vaccination against COVID-19 will decrease the death rate by 74.89 \%
 
 \section*{}
 
