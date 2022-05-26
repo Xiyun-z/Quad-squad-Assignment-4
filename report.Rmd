@@ -56,7 +56,6 @@ library(dplyr)
 library(knitr) 
 library(ggplot2) 
 library(plotly) 
-
 ```
 
 
@@ -109,7 +108,7 @@ COVID_dat_after_sanitize<- select(f_d,location|continent|  date|people_fully_vac
 ```
 
 
-```{r, echo= FALSE, warning = FALSE, fig.align="center", fig.cap ="COVID-19 Daily new cases",out.width = "8" }
+```{r, line plot for COVID-19 daily new cases, echo= FALSE, warning = FALSE, fig.align="center", fig.cap ="COVID-19 Daily new cases",out.width = "8" }
 
 sum_cases<-COVID_dat_after_sanitize%>% 
   group_by(continent, date)%>%
@@ -117,13 +116,68 @@ sum_cases<-COVID_dat_after_sanitize%>%
  
 sum_cases %>% ggplot(aes(x=date, y=daily_new_cases), 
   options(repr.plot.width=8, repr.plot.height=8))+
-            geom_line(aes(col=continent))
+            geom_line(aes(col=continent)) ->cases_p
+ggplotly(cases_p)
+```
+  
+```{r, Table of Daily Cases, out.width = '60', echo = FALSE, fig.align="center", fig.cap= "Countries with Highest Average Daily Cases"}
+
+sum <- COVID_dat_after_sanitize %>%
+  group_by(location) %>% 
+  summarise("average daily cases"= round(mean(new_cases)),
+            "average daily deaths" = mean(new_deaths),
+            "People fully vaccinated in percentage" = max(people_fully_vaccinated_per_hundred)) 
+
+
+sum %>% select(location,`average daily cases` )%>% 
+   arrange(desc(`average daily cases`)) %>%
+    slice(1:5) %>% 
+    knitr::kable() %>% 
+    kable_classic()
+
 ```
 
 
 
 
+```{r, line plot for COVID-19 daily deaths, echo= FALSE, warning = FALSE, fig.align="center", fig.cap ="Average daily deaths attributed to COVID-19,out.width = "8" }
 
+new_dat<-COVID_dat_after_sanitize%>% 
+  group_by(continent, date) %>% 
+  summarise(daily_mean_deaths=mean(new_deaths)) 
+ 
+new_dat %>% ggplot(aes(x=date, y=daily_mean_deaths), 
+  options(repr.plot.width=6, repr.plot.height=8))+
+            geom_line(aes(col=continent)) -> deaths_p
+
+ggplotly(deaths_p)
+
+```
+
+
+```{r, Table of Daily Deaths, out.width = '60', echo = FALSE, fig.align="center", fig.cap= "COVID-19 Highest Average Daily Deaths Countries", options(digits=3)} 
+
+
+sum %>% select(location,`average daily deaths`) %>% 
+  arrange(round(desc(`average daily deaths`)), 0) %>%
+    slice(1:5) %>% 
+    knitr::kable()%>% 
+    kable_classic() 
+```
+
+```{r, Barplot for vaccination rate, out.width = '60', echo = FALSE, warining=FALSE, fig.align="center", fig.cap="People fully vaccinated in percentage by region"}
+vax_reg<- COVID_dat_after_sanitize %>%
+  filter(people_fully_vaccinated_per_hundred <100) %>%  
+  group_by(continent) %>% 
+  summarise("People fully vaccinated in percentage" = max(people_fully_vaccinated_per_hundred)) 
+
+
+ vax_%>% 
+ggplot(aes(x=continent, 
+            y=`People fully vaccinated in percentage in average`, fill =continent)) +       
+geom_bar(stat='identity')
+
+```
 
 
 
