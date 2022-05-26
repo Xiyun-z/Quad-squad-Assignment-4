@@ -1,5 +1,5 @@
 ---
-title: "Research on COVID-19 vaccination"
+title: "Research on COVID-19 and vaccination"
 author:
 - familyname: Anukarnsakulchularp
   othernames: Krisanat
@@ -78,16 +78,17 @@ The packages we will be using in this analysis are @tidyverse, @readr, @kableExt
 
 # **Research questions** :
 
-## The overall analysis of covid-19.
+
+**1)The overall analysis of COVID-19.**
 
 
-## The Effects of government policies on the spread of COVID- 19 worldwide. 
+**2)The Effects of government policies on the spread of COVID- 19 worldwide.**
 
 
-## How do positive cases change relate to vaccination? 
+**3)How do positive cases change relate to vaccination?**
 
 
-## How do death rates from COVID-19 differ between people who are vaccinated and those who are not?  
+**4)How do death rates from COVID-19 differ between people who are vaccinated and those who are not?**
 
 
 
@@ -96,7 +97,9 @@ The packages we will be using in this analysis are @tidyverse, @readr, @kableExt
 
 # **Exploratory data analysis** 
 
-\section*{The overall analysis of covid-19}
+## **The overall analysis of covid-19**
+
+
 
 
 ```{r,echo=FALSE, include = FALSE, message= FALSE, warining = FALSE}
@@ -111,7 +114,11 @@ COVID_dat_after_sanitize<- select(f_d,location|continent|  date|people_fully_vac
 ```
 
 
-```{r Figure 1, echo= FALSE, warning = FALSE, fig.width = 6, fig.align="center", fig.cap ="COVID-19 Daily new cases"}
+
+
+
+
+```{r Figure1, echo= FALSE, warning = FALSE, fig.width = 6, fig.align="center", fig.cap ="COVID-19 Daily new cases"}
 
 sum_cases<-COVID_dat_after_sanitize%>% 
   group_by(continent, date)%>%
@@ -121,8 +128,19 @@ sum_cases %>% ggplot(aes(x=date, y=daily_new_cases)) +
             geom_line(aes(col=continent))
 
 ```
+
+ 
+ 
+The line chart \@ref(fig:Figure1) indicate from January 2021 to May 2022, the daily new cases show an upward trend. There are 3 times breakout in most regions, which occurs in the May 2021, August 2021, and February 2022. Especially in the past few months, the average daily cases reach to the highest point. Some countries in Europe and North America region have more than 1 million new cases every day. And European countries always have the highest daily cases in this period. 
+ 
+ 
+ 
+ 
+ 
+ 
+
   
-```{r Table 1, echo = FALSE, warning=FALSE}
+```{r Table1, echo = FALSE, warning=FALSE}
 
 sum <- COVID_dat_after_sanitize %>%
   group_by(location) %>% 
@@ -138,9 +156,15 @@ sum %>% select(location,`average daily cases` )%>%
     kable_styling(latex_options = c("striped", "hold_position")) 
 ```
 
+Table \@ref(tab:Table1) list the top 5 countries with the highest average daily cases. The average daily cases are more than 1 million in United State. 
+In the following, the countries in the table will be utilised to examine the relationship between vaccination and daily new cases.
 
 
-```{r Figure 2,echo= FALSE, warning = FALSE, fig.width = 6, fig.align="center", fig.cap ="Average daily deaths attributed to COVID-19"}
+ 
+
+
+
+```{r Figure2, echo= FALSE, warning = FALSE, fig.width = 5, fig.align="center", fig.cap ="Average daily deaths attributed to COVID-19"}
 
 
 new_dat<-COVID_dat_after_sanitize%>% 
@@ -152,9 +176,12 @@ new_dat %>% ggplot(aes(x=date, y=daily_mean_deaths))+
 
 
 ```
+The overall of graph \@ref(fig:Figure2) show a decline trend of average daily deaths attributed to COVID-19. The North America area has the greatest daily deaths in early 2021, and then the number of deaths drops dramatically beginning in May 2021. After October 2021, the average daily death toll in North America never exceed 500. 
 
 
-```{r Table-2,  echo = FALSE, warning = FALSE} 
+
+
+```{r Table2,  echo = FALSE, warning = FALSE} 
 
 options(digits=0)
 
@@ -164,8 +191,14 @@ sum %>% select(location,`average daily deaths`) %>%
    kable("latex", caption = "COVID-19 Highest Average Daily Deaths Countries") %>% 
     kable_styling(latex_options = c("striped", "hold_position")) 
 ```
+Table \@ref(tab:Table2) list the top 5 countries with the highest average daily deaths caused by COVID-19. 
+In the following, the countries in the table will be using to analyse the relationship between vaccination and daily deaths.
 
-```{r Figure 3, echo = FALSE, warining=FALSE, fig.width = 6, fig.align="center", fig.cap = "People fully vaccinated in percentage by region"}
+
+
+
+
+```{r Figure3, echo = FALSE, warining=FALSE, fig.width = 6, fig.align="center", fig.cap = "People fully vaccinated in percentage by region"}
 
 vax_<- COVID_dat_after_sanitize %>%
   filter(people_fully_vaccinated_per_hundred <100) %>%  
@@ -180,7 +213,7 @@ ggplot(aes(x=continent,
 geom_bar(stat='identity')
 
 ```
-
+The barplot \@ref(fig:Figure3) shows the fully vaccination rate by regions. Except Africa region, the fully vaccinated rate over 50% in other continent.  According to the research @African-COVID-19-vaccination, at the end of December 2021, only 7 African countries with relatively smaller populations (Seychelles, Mauritius, Morocco, Tunisia, Comoros, Botswana, and Cape Verde) met the 40% target. The African continent's fundamentally deficient health systems are undoubtedly leading to insufficient COVID-19 vaccination capability.
 
 
 \clearpage
