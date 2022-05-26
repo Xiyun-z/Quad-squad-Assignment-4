@@ -97,17 +97,7 @@ The data set for this report was obtained from the World Bank database, and it c
 
 \clearpage
 
-# **Research questions** :
-
-
-
-
-\clearpage
-
-
-# **Exploratory data analysis** 
-
-\section*{}
+ **Background** :
 
 
 
@@ -115,21 +105,8 @@ The data set for this report was obtained from the World Bank database, and it c
 
 
 \clearpage
-
-
-\section*{}
-
-Question 1
-
-
-
-\clearpage
-
-
-
-
-
-**Research Question 2**
+**Research Question 1**
+\section*{Effects of government policies on the spread of COVID- 19 worldwide}
 
 
 
@@ -138,31 +115,34 @@ Question 1
 
 
 \clearpage
-
 **Research Question 3**
 
 \section*{ How do positive cases change relate to vaccination?}
 
+
 \subsection*{top 5 countries with highest daily new cases}
 
-```{r tab-vax-cases, echo = FALSE, message = FALSE, warning = FALSE, results = 'hide',fig.cap= "top 5 countries with highest daily cases"}
 
-sum_dat1 <- dat %>% 
+```{r tab-vax-cases, echo = FALSE, message = FALSE, warning = FALSE,fig.cap= "top 10 countries with highest daily cases"}
+sum_dat1<-dat %>% 
   group_by(location)%>%
   mutate(new_people_fully_vaccinated = people_fully_vaccinated- lag(people_fully_vaccinated))%>%
   summarise(mean_daily_cases = round(mean(new_cases),digit = 0),
          mean_new_vax = round(mean(new_people_fully_vaccinated, na.rm = TRUE,),digits = 0))%>%
   arrange(desc(mean_daily_cases))
-  kable(head(sum_dat1,5),  caption = "top 5 countries with highest daily cases", booktabs = T) %>%
+  kable(head(sum_dat1,10), "latex", caption = "top 10 countries with highest daily cases", booktabs = T) %>%
   kable_styling(latex_options = c("striped", "hold_position"))
-  
+
+```
+
+
+```{r  echo = FALSE, message = FALSE, warning = FALSE, results = 'hide'}
 top5 <- dat%>%
   filter(location %in% c("United States", "India", "France", "Germany", "Brazil"))%>%
   select(!X)
 ```
 
-
-
+\clearpage
 \subsection*{Trend of trend of new cases vs fully vaccinated}
 ```{r trend-vax-cases, echo = FALSE, message = FALSE, warning = FALSE, results = 'hide' ,fig.cap = "trend of new cases vs fully vaccinated"}
 p1<-ggplot(data = top5, aes(x = base::as.Date(date), y = new_cases, colour = location ))+
@@ -180,17 +160,29 @@ p2<-ggplot(data = top5, aes(x = base::as.Date(date), y = people_fully_vaccinated
 gridExtra::grid.arrange(p1, p2, nrow=2)    
 ```
 
-
+\clearpage
 \subsection*{Trend of trend of new cases vs fully vaccinated}
 
-```{r vax-cases, echo = FALSE, message = FALSE, warning = FALSE, results = 'hide' ,fig.cap = "correlation between new cases vs fully vaccinated"}
-ggplot(data = top5, aes(x=people_fully_vaccinated, y =new_cases, colour = location))+
+```{r vax-cases, echo = FALSE, message = FALSE, warning = FALSE, results = 'hide' ,error = FALSE, fig.cap = "correlation between new cases vs fully vaccinated"}
+ggplot(data = top5, aes(x=people_fully_vaccinated, y = new_cases))+
   geom_point()+
-  geom_smooth(color="black", se=FALSE)+
-  hrbrthemes::theme_ipsum()+
+  geom_smooth()+
   labs(x = "people fully vaccinated" , y = "new daily cases")+
   facet_wrap(~location, scales = "free")
 
 ```
+\clearpage
+**Research Question 3**
+\section*{How do ICU rates from COVID-19 relates to population of vaccination}
+
+
+\clearpage
+**Research Question 4**
+\section*{ How do death rates from COVID-19 differ between people who are vaccinated and those who are not}
+
+
+
+\clearpage
+
 **CONCLUSIONS**
 

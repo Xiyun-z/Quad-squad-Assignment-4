@@ -289,6 +289,7 @@
 \usepackage{threeparttablex}
 \usepackage[normalem]{ulem}
 \usepackage{makecell}
+\usepackage{xcolor}
 
 
 \begin{document}
@@ -312,31 +313,80 @@ The data set for this report was obtained from the World Bank database, and it c
 
 \clearpage
 
-\hypertarget{research-questions}{%
-\section{\texorpdfstring{\textbf{Research questions} :}{Research questions :}}\label{research-questions}}
+\textbf{Background} :
 
 \clearpage
 
-\hypertarget{exploratory-data-analysis}{%
-\section{\texorpdfstring{\textbf{Exploratory data analysis}}{Exploratory data analysis}}\label{exploratory-data-analysis}}
+\textbf{Research Question 1}
 
-\section*{}
-
-\clearpage
-
-\section*{}
-
-Question 1
+\section*{Effects of government policies on the spread of COVID- 19 worldwide}
 
 \clearpage
 
-\textbf{Research Question 2}
+\textbf{Research Question 3}
+
+\section*{ How do positive cases change relate to vaccination?}
+
+\subsection*{top 5 countries with highest daily new cases}
+
+\begin{table}[!h]
+
+\caption{\label{tab:tab-vax-cases}top 10 countries with highest daily cases}
+\centering
+\begin{tabular}[t]{lrr}
+\toprule{}
+location & mean\_daily\_cases & mean\_new\_vax\\
+\midrule{}
+\cellcolor{gray!6}{United States} & \cellcolor{gray!6}{120485} & \cellcolor{gray!6}{460807}\\
+India & 70729 & 2008029\\
+\cellcolor{gray!6}{France} & \cellcolor{gray!6}{56649} & \cellcolor{gray!6}{114808}\\
+Germany & 50097 & 138851\\
+\cellcolor{gray!6}{Brazil} & \cellcolor{gray!6}{46861} & \cellcolor{gray!6}{372420}\\
+\addlinespace
+South Korea & 39991 & 102167\\
+\cellcolor{gray!6}{United Kingdom} & \cellcolor{gray!6}{38446} & \cellcolor{gray!6}{110154}\\
+Italy & 30754 & 102214\\
+\cellcolor{gray!6}{Russia} & \cellcolor{gray!6}{29095} & \cellcolor{gray!6}{203228}\\
+Turkey & 27831 & 119240\\
+\bottomrule{}
+\end{tabular}
+\end{table}
+
+\clearpage
+\subsection*{Trend of trend of new cases vs fully vaccinated}
+\begin{figure}
+
+{\centering \includegraphics{report_files/figure-latex/trend-vax-cases-1} 
+
+}
+
+\caption{trend of new cases vs fully vaccinated}\label{fig:trend-vax-cases}
+\end{figure}
+
+\clearpage
+\subsection*{Trend of trend of new cases vs fully vaccinated}
+
+\begin{figure}
+
+{\centering \includegraphics{report_files/figure-latex/vax-cases-1} 
+
+}
+
+\caption{correlation between new cases vs fully vaccinated}\label{fig:vax-cases}
+\end{figure}
+\clearpage
+
+\textbf{Research Question 3}
+
+\section*{How do ICU rates from COVID-19 relates to population of vaccination}
 
 \clearpage
 
-\section*{}
+\textbf{Research Question 4}
 
-\section*{}
+\section*{ How do death rates from COVID-19 differ between people who are vaccinated and those who are not}
+
+\clearpage
 
 \textbf{CONCLUSIONS}
 
