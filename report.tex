@@ -289,6 +289,7 @@
 \usepackage{threeparttablex}
 \usepackage[normalem]{ulem}
 \usepackage{makecell}
+\usepackage{xcolor}
 
 
 \begin{document}
@@ -323,9 +324,6 @@ The packages we will be using in this analysis are \textcite{tidyverse}, \textci
 \textbf{4)How do death rates from COVID-19 differ between people who are vaccinated and those who are not?}
 
 \clearpage
-
-\hypertarget{exploratory-data-analysis}{%
-\section{\texorpdfstring{\textbf{Exploratory data analysis}}{Exploratory data analysis}}\label{exploratory-data-analysis}}
 
 \hypertarget{the-overall-analysis-of-covid-19}{%
 \subsection{\texorpdfstring{\textbf{The overall analysis of covid-19}}{The overall analysis of covid-19}}\label{the-overall-analysis-of-covid-19}}
@@ -413,20 +411,76 @@ The barplot \ref{fig:Figure3} shows the fully vaccination rate by regions. Excep
 
 \clearpage
 
-\section*{}
+\section*{ How do positive cases change relate to vaccination?}
+
+\subsection*{top 5 countries with highest daily new cases}
+
+\begin{table}[!h]
+
+\caption{\label{tab:table3}top 10 countries with highest daily cases}
+\centering
+\begin{tabular}[t]{lrr}
+\toprule{}
+location & mean\_daily\_cases & mean\_new\_vax\\
+\midrule{}
+\cellcolor{gray!6}{United States} & \cellcolor{gray!6}{1.e+05} & \cellcolor{gray!6}{5.e+05}\\
+India & 7.e+04 & 2.e+06\\
+\cellcolor{gray!6}{France} & \cellcolor{gray!6}{6.e+04} & \cellcolor{gray!6}{1.e+05}\\
+Germany & 5.e+04 & 1.e+05\\
+\cellcolor{gray!6}{Brazil} & \cellcolor{gray!6}{5.e+04} & \cellcolor{gray!6}{4.e+05}\\
+\addlinespace
+South Korea & 4.e+04 & 1.e+05\\
+\cellcolor{gray!6}{United Kingdom} & \cellcolor{gray!6}{4.e+04} & \cellcolor{gray!6}{1.e+05}\\
+Italy & 3.e+04 & 1.e+05\\
+\cellcolor{gray!6}{Russia} & \cellcolor{gray!6}{3.e+04} & \cellcolor{gray!6}{2.e+05}\\
+Turkey & 3.e+04 & 1.e+05\\
+\bottomrule{}
+\end{tabular}
+\end{table}
+
+\subsection*{Trend of trend of new cases vs fully vaccinated}
+\begin{figure}
+
+{\centering \includegraphics{report_files/figure-latex/figure4-1} 
+
+}
+
+\caption{trend of new cases vs fully vaccinated}\label{fig:figure4}
+\end{figure}
 
 \clearpage
 
-\clearpage
+\subsection*{Trend of trend of new cases vs fully vaccinated}
+\begin{figure}
 
+{\centering \includegraphics{report_files/figure-latex/figure5-1} 
+
+}
+
+\caption{correlation between new cases vs fully vaccinated}\label{fig:figure5}
+\end{figure}
+
+We sorted out countries by the order of mean new daily cases, referring @ref(tab: table3), the table showcases top 10 countries with highest mean value of daily cases, our research onward will based on the top 5 countries, US, Brazil, India, Germany, France. From table \ref{tab:table3}, United States has the highest daily cases and India did the best in terms of vaccination.
+
+Line chart \ref{fig:figure4} showcases the trend of new cases and fully vaccinated people from 2021 to latest data, and from the line chart, there is no corresponding effect between them. \textcite{lipsitch2020understanding} mentioned that the effectiveness of vaccination varies within different condition of health, however, both direct and indirect protection reduce virus symptoms generally.
+
+Plot chart \ref{fig:figure5} was generate to explore relationship between vaccination and new cases, with vaccination on x axis, daily cases in y axis, the graph did not show significant correlation between them, smooth line was added to overview general movement. the graph further prove there is no expected higher vaccination with lower infections in the top 5 countries. \textcite{chen2021prediction} discussed the how mutation reduce the effectiveness of vaccination in terms of infection protection, and the research team mentioned we need to develop vaccine to deal with predicted mutation.
+
+\clearpage
+\section*{ How do death rates from COVID-19 differ between people who are vaccinated and those who are not}
+
+\clearpage
 \section*{}
 
+\clearpage
 \section*{}
 
 \hypertarget{conclusions}{%
 \section{\texorpdfstring{\textbf{CONCLUSIONS}}{CONCLUSIONS}}\label{conclusions}}
 
 Globally, after the continued decline observed since the end of March 2022, new daily COVID-19 cases have stabilized in the latest weeks. And the number of new daily deaths continues to decline.
+
+The vaccination seems to not affect the spread of the virus due to mutation.
 
 \printbibliography
 

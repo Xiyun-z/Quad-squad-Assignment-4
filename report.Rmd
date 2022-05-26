@@ -44,6 +44,20 @@ output:
     toc: false
 ---
 
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      eval = TRUE,
+                      message = FALSE,
+                      warning = FALSE,
+                      error = FALSE,
+                      fig.align = "center",
+                      fig.width = 6, 
+                      fig.height = 3.5)
+```
+
+
+
 ```{r , echo = FALSE, message = FALSE, warning = FALSE}
 # Libraries
 
@@ -55,8 +69,19 @@ library(kableExtra)
 library(dplyr) 
 library(knitr) 
 library(ggplot2) 
+library(tidyverse)
+
+
 ```
 
+
+```{r echo = FALSE, message = FALSE, warning = FALSE, results = 'hide'}
+# Read data
+dat <- read.csv(file = "Data/COVID_dat_after_sanitize.csv") 
+
+# NA summary
+summary(is.na(dat))
+``` 
 
 \clearpage
 # **Introduction** 
@@ -76,7 +101,9 @@ The packages we will be using in this analysis are @tidyverse, @readr, @kableExt
 \clearpage
 
 
+
 # **Research questions** :
+
 
 
 **1)The overall analysis of COVID-19.**
@@ -92,19 +119,15 @@ The packages we will be using in this analysis are @tidyverse, @readr, @kableExt
 
 
 
+
+
 \clearpage
-
-
-# **Exploratory data analysis** 
 
 ## **The overall analysis of covid-19**
 
-
-
-
 ```{r,echo=FALSE, include = FALSE, message= FALSE, warining = FALSE}
 ##data sanitize 
-covid_data <- read_csv("/Users/jojo/Desktop/Assignment-4/Data/owid-covid-data.csv")
+covid_data <- read_csv("Data/owid-covid-data.csv")
 f_d<-filter(covid_data, date >= as.Date("2021-01-30"))
 
 COVID_dat_after_sanitize<- select(f_d,location|continent|  date|people_fully_vaccinated|people_fully_vaccinated_per_hundred|new_cases|total_cases|new_deaths|new_deaths_per_million|total_deaths_per_million)  %>% 
@@ -112,9 +135,6 @@ COVID_dat_after_sanitize<- select(f_d,location|continent|  date|people_fully_vac
 
 
 ```
-
-
-
 
 
 
@@ -160,12 +180,7 @@ Table \@ref(tab:Table1) list the top 5 countries with the highest average daily 
 In the following, the countries in the table will be utilised to examine the relationship between vaccination and daily new cases.
 
 
- 
-
-
-
 ```{r Figure2, echo= FALSE, warning = FALSE, fig.width = 5, fig.align="center", fig.cap ="Average daily deaths attributed to COVID-19"}
-
 
 new_dat<-COVID_dat_after_sanitize%>% 
   group_by(continent, date) %>% 
@@ -177,9 +192,6 @@ new_dat %>% ggplot(aes(x=date, y=daily_mean_deaths))+
 
 ```
 The overall of graph \@ref(fig:Figure2) show a decline trend of average daily deaths attributed to COVID-19. The North America area has the greatest daily deaths in early 2021, and then the number of deaths drops dramatically beginning in May 2021. After October 2021, the average daily death toll in North America never exceed 500. 
-
-
-
 
 ```{r Table2,  echo = FALSE, warning = FALSE} 
 
@@ -193,10 +205,6 @@ sum %>% select(location,`average daily deaths`) %>%
 ```
 Table \@ref(tab:Table2) list the top 5 countries with the highest average daily deaths caused by COVID-19. 
 In the following, the countries in the table will be using to analyse the relationship between vaccination and daily deaths.
-
-
-
-
 
 ```{r Figure3, echo = FALSE, warining=FALSE, fig.width = 6, fig.align="center", fig.cap = "People fully vaccinated in percentage by region"}
 
@@ -218,24 +226,84 @@ The barplot \@ref(fig:Figure3) shows the fully vaccination rate by regions. Exce
 
 \clearpage
 
+\section*{ How do positive cases change relate to vaccination?}
 
-\section*{}
 
+\subsection*{top 5 countries with highest daily new cases}
+
+```{r table3, echo = FALSE, message = FALSE, warning = FALSE,fig.cap= "top 10 countries with highest daily cases"}
+options(digits = 0)
+
+sum_dat1<-dat %>% 
+  group_by(location)%>%
+  mutate(new_people_fully_vaccinated = people_fully_vaccinated- lag(people_fully_vaccinated))%>%
+  summarise(mean_daily_cases = mean(new_cases),
+         mean_new_vax = mean(new_people_fully_vaccinated, na.rm = TRUE))%>%
+  arrange(desc(mean_daily_cases))
+  kable(head(sum_dat1,10), "latex", caption = "top 10 countries with highest daily cases", booktabs = T) %>%
+  kable_styling(latex_options = c("striped", "hold_position"))
+
+```
+
+```{r  echo = FALSE, message = FALSE, warning = FALSE, results = 'hide'}
+top5 <- dat%>%
+  filter(location %in% c("United States", "India", "France", "Germany", "Brazil"))%>%
+  select(!X)
+```
+
+\subsection*{Trend of trend of new cases vs fully vaccinated}
+```{r figure4, echo = FALSE, message = FALSE, warning = FALSE, results = 'hide' ,fig.cap = "trend of new cases vs fully vaccinated"}
+p1<-ggplot(data = top5, aes(x = base::as.Date(date), y = new_cases, colour = location ))+
+  geom_line() +
+  theme_bw() +
+  labs(y = "New Cases", x="Date")
+
+p2<-ggplot(data = top5, aes(x = base::as.Date(date), y = people_fully_vaccinated, colour = location))+
+  geom_line() +
+  theme_bw() +
+  labs(y = "People Fully Vaccinated", x="Date")
+       
+
+                
+gridExtra::grid.arrange(p1, p2, nrow=2)    
+```
 
 
 
 \clearpage
 
 
+\subsection*{Trend of trend of new cases vs fully vaccinated}
+```{r figure5, echo = FALSE, message = FALSE, warning = FALSE, fig.width = 6, results = 'hide' ,error = FALSE, fig.cap = "correlation between new cases vs fully vaccinated"}
+ggplot(data = top5, aes(x=people_fully_vaccinated, y = new_cases))+
+  geom_point()+
+  geom_smooth()+
+  labs(x = "people fully vaccinated" , y = "new daily cases")+
+  facet_wrap(~location, scales = "free")
+
+```
+
+We sorted out countries by the order of mean new daily cases, referring \@ref(tab: table3), the table showcases top 10 countries with highest mean value of daily cases, our research onward will based on the top 5 countries, US, Brazil, India, Germany, France. From table \@ref(tab:table3), United States has the highest daily cases and India did the best in terms of vaccination.
+
+Line chart \@ref(fig:figure4) showcases the trend of new cases and fully vaccinated people from 2021 to latest data, and from the line chart, there is no corresponding effect between them. @lipsitch2020understanding mentioned that the effectiveness of vaccination varies within different condition of health, however, both direct and indirect protection reduce virus symptoms generally. 
+
+Plot chart \@ref(fig:figure5) was generate to explore relationship between vaccination and new cases, with vaccination on x axis, daily cases in y axis, the graph did not show significant correlation between them, smooth line was added to overview general movement. the graph further prove there is no expected higher vaccination with lower infections in the top 5 countries. @chen2021prediction discussed the how mutation reduce the effectiveness of vaccination in terms of infection protection, and the research team mentioned we need to develop vaccine to deal with predicted mutation.
+
+
+
 
 \clearpage
+\section*{ How do death rates from COVID-19 differ between people who are vaccinated and those who are not}
 
 
+
+
+\clearpage
 \section*{}
 
 
 
-
+\clearpage
 \section*{}
 
 
@@ -244,4 +312,5 @@ The barplot \@ref(fig:Figure3) shows the fully vaccination rate by regions. Exce
 
 Globally, after the continued decline observed since the end of March 2022, new daily COVID-19 cases have stabilized in the latest weeks. And the number of new daily deaths continues to decline. 
 
+The vaccination seems to not affect the spread of the virus due to mutation.
 
