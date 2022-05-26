@@ -21,7 +21,7 @@
 \PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
 \usepackage[unicode=true]{hyperref}
 \hypersetup{
-            pdftitle={Research on COVID-19 vaccination},
+            pdftitle={Research on COVID-19 and vaccination},
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
@@ -49,7 +49,7 @@
 \makeatother
 
 
-\title{Research on COVID-19 vaccination}
+\title{Research on COVID-19 and vaccination}
 
 %% MONASH STUFF
 
@@ -314,37 +314,36 @@ The packages we will be using in this analysis are \textcite{tidyverse}, \textci
 \hypertarget{research-questions}{%
 \section{\texorpdfstring{\textbf{Research questions} :}{Research questions :}}\label{research-questions}}
 
-\hypertarget{the-overall-analysis-of-covid-19.}{%
-\subsection{The overall analysis of covid-19.}\label{the-overall-analysis-of-covid-19.}}
+\textbf{1)The overall analysis of COVID-19.}
 
-\hypertarget{the-effects-of-government-policies-on-the-spread-of-covid--19-worldwide.}{%
-\subsection{The Effects of government policies on the spread of COVID- 19 worldwide.}\label{the-effects-of-government-policies-on-the-spread-of-covid--19-worldwide.}}
+\textbf{2)The Effects of government policies on the spread of COVID- 19 worldwide.}
 
-\hypertarget{how-do-positive-cases-change-relate-to-vaccination}{%
-\subsection{How do positive cases change relate to vaccination?}\label{how-do-positive-cases-change-relate-to-vaccination}}
+\textbf{3)How do positive cases change relate to vaccination?}
 
-\hypertarget{how-do-death-rates-from-covid-19-differ-between-people-who-are-vaccinated-and-those-who-are-not}{%
-\subsection{How do death rates from COVID-19 differ between people who are vaccinated and those who are not?}\label{how-do-death-rates-from-covid-19-differ-between-people-who-are-vaccinated-and-those-who-are-not}}
+\textbf{4)How do death rates from COVID-19 differ between people who are vaccinated and those who are not?}
 
 \clearpage
 
 \hypertarget{exploratory-data-analysis}{%
 \section{\texorpdfstring{\textbf{Exploratory data analysis}}{Exploratory data analysis}}\label{exploratory-data-analysis}}
 
-\section*{The overall analysis of covid-19}
+\hypertarget{the-overall-analysis-of-covid-19}{%
+\subsection{\texorpdfstring{\textbf{The overall analysis of covid-19}}{The overall analysis of covid-19}}\label{the-overall-analysis-of-covid-19}}
 
 \begin{figure}
 
-{\centering \includegraphics{report_files/figure-latex/Figure 1-1} 
+{\centering \includegraphics{report_files/figure-latex/Figure1-1} 
 
 }
 
-\caption{COVID-19 Daily new cases}(\#fig:Figure 1)
+\caption{COVID-19 Daily new cases}\label{fig:Figure1}
 \end{figure}
+
+The line chart \ref{fig:Figure1} indicate from January 2021 to May 2022, the daily new cases show an upward trend. There are 3 times breakout in most regions, which occurs in the May 2021, August 2021, and February 2022. Especially in the past few months, the average daily cases reach to the highest point. Some countries in Europe and North America region have more than 1 million new cases every day. And European countries always have the highest daily cases in this period.
 
 \begin{table}[!h]
 
-\caption{(\#tab:Table 1)Countries with Highest Average Daily Cases}
+\caption{\label{tab:Table1}Countries with Highest Average Daily Cases}
 \centering
 \begin{tabular}[t]{l|r}
 \hline
@@ -363,18 +362,23 @@ Germany & 50097\\
 \end{tabular}
 \end{table}
 
+Table \ref{tab:Table1} list the top 5 countries with the highest average daily cases. The average daily cases are more than 1 million in United State.
+In the following, the countries in the table will be utilised to examine the relationship between vaccination and daily new cases.
+
 \begin{figure}
 
-{\centering \includegraphics{report_files/figure-latex/Figure 2-1} 
+{\centering \includegraphics{report_files/figure-latex/Figure2-1} 
 
 }
 
-\caption{Average daily deaths attributed to COVID-19}(\#fig:Figure 2)
+\caption{Average daily deaths attributed to COVID-19}\label{fig:Figure2}
 \end{figure}
+
+The overall of graph \ref{fig:Figure2} show a decline trend of average daily deaths attributed to COVID-19. The North America area has the greatest daily deaths in early 2021, and then the number of deaths drops dramatically beginning in May 2021. After October 2021, the average daily death toll in North America never exceed 500.
 
 \begin{table}[!h]
 
-\caption{\label{tab:Table-2}COVID-19 Highest Average Daily Deaths Countries}
+\caption{\label{tab:Table2}COVID-19 Highest Average Daily Deaths Countries}
 \centering
 \begin{tabular}[t]{l|r}
 \hline
@@ -393,14 +397,19 @@ Russia & 662\\
 \end{tabular}
 \end{table}
 
+Table \ref{tab:Table2} list the top 5 countries with the highest average daily deaths caused by COVID-19.
+In the following, the countries in the table will be using to analyse the relationship between vaccination and daily deaths.
+
 \begin{figure}
 
-{\centering \includegraphics{report_files/figure-latex/Figure 3-1} 
+{\centering \includegraphics{report_files/figure-latex/Figure3-1} 
 
 }
 
-\caption{People fully vaccinated in percentage by region}(\#fig:Figure 3)
+\caption{People fully vaccinated in percentage by region}\label{fig:Figure3}
 \end{figure}
+
+The barplot \ref{fig:Figure3} shows the fully vaccination rate by regions. Except Africa region, the fully vaccinated rate over 50\% in other continent. According to the research \textcite{African-COVID-19-vaccination}, at the end of December 2021, only 7 African countries with relatively smaller populations (Seychelles, Mauritius, Morocco, Tunisia, Comoros, Botswana, and Cape Verde) met the 40\% target. The African continent's fundamentally deficient health systems are undoubtedly leading to insufficient COVID-19 vaccination capability.
 
 \clearpage
 
