@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.7)  27 MAY 2022 01:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.7)  27 MAY 2022 02:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1172,7 +1172,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 (c:/Users/ottoi/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-<Figures/logo.jpg, id=20, 1610.015pt x 788.9475pt>
+<Figures/logo.jpg, id=32, 1610.015pt x 788.9475pt>
 File: Figures/logo.jpg Graphic file (type jpg)
 <use Figures/logo.jpg>
 Package pdftex.def Info: Figures/logo.jpg  used on input line 296.
@@ -1440,90 +1440,91 @@ LaTeX Warning: Citation 'ggplot2' on page 2 undefined on input line 311.
 
 [2
 
+] [3
+
 ]
-<report_files/figure-latex/Figure1-1.pdf, id=37, 433.62pt x 252.945pt>
+<report_files/figure-latex/Figure1-1.pdf, id=58, 433.62pt x 252.945pt>
 File: report_files/figure-latex/Figure1-1.pdf Graphic file (type pdf)
 <use report_files/figure-latex/Figure1-1.pdf>
-Package pdftex.def Info: report_files/figure-latex/Figure1-1.pdf  used on input line 331.
+Package pdftex.def Info: report_files/figure-latex/Figure1-1.pdf  used on input line 336.
 (pdftex.def)             Requested size: 433.61894pt x 252.94438pt.
 LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
-(Font)              scaled to size 10.51207pt on input line 335.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<report_files/figure-latex/Figure2-1.pdf, id=40, 361.35pt x 252.945pt>
+(Font)              scaled to size 10.51207pt on input line 340.
+<report_files/figure-latex/Figure2-1.pdf, id=61, 361.35pt x 252.945pt>
 File: report_files/figure-latex/Figure2-1.pdf Graphic file (type pdf)
 <use report_files/figure-latex/Figure2-1.pdf>
-Package pdftex.def Info: report_files/figure-latex/Figure2-1.pdf  used on input line 366.
+Package pdftex.def Info: report_files/figure-latex/Figure2-1.pdf  used on input line 371.
 (pdftex.def)             Requested size: 361.34912pt x 252.94438pt.
-[3
+[4
 
- <./report_files/figure-latex/Figure1-1.pdf>]
-<report_files/figure-latex/Figure3-1.pdf, id=57, 433.62pt x 252.945pt>
+ <./report_files/figure-latex/Figure1-1.pdf>] [5 <./report_files/figure-latex/Figure2-1.pdf>]
+<report_files/figure-latex/Figure3-1.pdf, id=87, 433.62pt x 252.945pt>
 File: report_files/figure-latex/Figure3-1.pdf Graphic file (type pdf)
 <use report_files/figure-latex/Figure3-1.pdf>
-Package pdftex.def Info: report_files/figure-latex/Figure3-1.pdf  used on input line 401.
+Package pdftex.def Info: report_files/figure-latex/Figure3-1.pdf  used on input line 408.
 (pdftex.def)             Requested size: 433.61894pt x 252.94438pt.
-[4 <./report_files/figure-latex/Figure2-1.pdf>] [5 <./report_files/figure-latex/Figure3-1.pdf>]
-<report_files/figure-latex/stringency-index-1.pdf, id=83, 433.62pt x 216.81pt>
-File: report_files/figure-latex/stringency-index-1.pdf Graphic file (type pdf)
-<use report_files/figure-latex/stringency-index-1.pdf>
-Package pdftex.def Info: report_files/figure-latex/stringency-index-1.pdf  used on input line 420.
-(pdftex.def)             Requested size: 433.61894pt x 216.80946pt.
-<report_files/figure-latex/relationship-tot-index-1.pdf, id=87, 433.62pt x 216.81pt>
-File: report_files/figure-latex/relationship-tot-index-1.pdf Graphic file (type pdf)
-<use report_files/figure-latex/relationship-tot-index-1.pdf>
-Package pdftex.def Info: report_files/figure-latex/relationship-tot-index-1.pdf  used on input line 433.
-(pdftex.def)             Requested size: 433.61894pt x 216.80946pt.
 [6
 
- <./report_files/figure-latex/stringency-index-1.pdf>] [7 <./report_files/figure-latex/relationship-tot-index-1.pdf>]
-<report_files/figure-latex/figure4-1.pdf, id=115, 433.62pt x 252.945pt>
+ <./report_files/figure-latex/Figure3-1.pdf>]
+<report_files/figure-latex/stringency-index-1.pdf, id=102, 433.62pt x 216.81pt>
+File: report_files/figure-latex/stringency-index-1.pdf Graphic file (type pdf)
+<use report_files/figure-latex/stringency-index-1.pdf>
+Package pdftex.def Info: report_files/figure-latex/stringency-index-1.pdf  used on input line 427.
+(pdftex.def)             Requested size: 433.61894pt x 216.80946pt.
+<report_files/figure-latex/relationship-tot-index-1.pdf, id=106, 433.62pt x 216.81pt>
+File: report_files/figure-latex/relationship-tot-index-1.pdf Graphic file (type pdf)
+<use report_files/figure-latex/relationship-tot-index-1.pdf>
+Package pdftex.def Info: report_files/figure-latex/relationship-tot-index-1.pdf  used on input line 440.
+(pdftex.def)             Requested size: 433.61894pt x 216.80946pt.
+[7
+
+ <./report_files/figure-latex/stringency-index-1.pdf>] [8 <./report_files/figure-latex/relationship-tot-index-1.pdf>]
+<report_files/figure-latex/figure4-1.pdf, id=134, 433.62pt x 252.945pt>
 File: report_files/figure-latex/figure4-1.pdf Graphic file (type pdf)
 <use report_files/figure-latex/figure4-1.pdf>
-Package pdftex.def Info: report_files/figure-latex/figure4-1.pdf  used on input line 475.
-(pdftex.def)             Requested size: 433.61894pt x 252.94438pt.
-[8
-
- <./report_files/figure-latex/figure4-1.pdf>]
-<report_files/figure-latex/figure5-1.pdf, id=127, 433.62pt x 252.945pt>
-File: report_files/figure-latex/figure5-1.pdf Graphic file (type pdf)
-<use report_files/figure-latex/figure5-1.pdf>
-Package pdftex.def Info: report_files/figure-latex/figure5-1.pdf  used on input line 488.
+Package pdftex.def Info: report_files/figure-latex/figure4-1.pdf  used on input line 482.
 (pdftex.def)             Requested size: 433.61894pt x 252.94438pt.
 [9
 
- <./report_files/figure-latex/figure5-1.pdf>]
-<report_files/figure-latex/graph-1.pdf, id=150, 433.62pt x 252.945pt>
-File: report_files/figure-latex/graph-1.pdf Graphic file (type pdf)
-<use report_files/figure-latex/graph-1.pdf>
-Package pdftex.def Info: report_files/figure-latex/graph-1.pdf  used on input line 532.
+ <./report_files/figure-latex/figure4-1.pdf>]
+<report_files/figure-latex/figure5-1.pdf, id=147, 433.62pt x 252.945pt>
+File: report_files/figure-latex/figure5-1.pdf Graphic file (type pdf)
+<use report_files/figure-latex/figure5-1.pdf>
+Package pdftex.def Info: report_files/figure-latex/figure5-1.pdf  used on input line 495.
 (pdftex.def)             Requested size: 433.61894pt x 252.94438pt.
 [10
 
+ <./report_files/figure-latex/figure5-1.pdf>]
+<report_files/figure-latex/graph-1.pdf, id=169, 433.62pt x 252.945pt>
+File: report_files/figure-latex/graph-1.pdf Graphic file (type pdf)
+<use report_files/figure-latex/graph-1.pdf>
+Package pdftex.def Info: report_files/figure-latex/graph-1.pdf  used on input line 537.
+(pdftex.def)             Requested size: 433.61894pt x 252.94438pt.
+[11
+
  <./report_files/figure-latex/graph-1.pdf>]
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 9.24173pt on input line 553.
-[11] (./report.aux)
+(Font)              scaled to size 9.24173pt on input line 558.
+[12] (./report.aux)
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 588156497A198BD780A66B9BBE53DB4B;637.
+(rerunfilecheck)             Checksum: 8F2F70DD422934AF27889A954193C829;2076.
 Package logreq Info: Writing requests to 'report.run.xml'.
 \openout1 = `report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 27655 strings out of 480260
- 484398 string characters out of 5892849
- 1185915 words of memory out of 5000000
- 44794 multiletter control sequences out of 15000+600000
- 576777 words of font info for 320 fonts, out of 8000000 for 9000
+ 27667 strings out of 480260
+ 484924 string characters out of 5892849
+ 1185454 words of memory out of 5000000
+ 44800 multiletter control sequences out of 15000+600000
+ 576800 words of font info for 319 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  60i,14n,93p,1357b,1462s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/ottoi/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{c:/Users/ottoi/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/ly1/texnansi.enc}{c:/Users/ottoi/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.enc}<c:/Users/ottoi/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/fontawesome/FontAwesome.pfb><c:/Users/ottoi/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb><c:/Users/ottoi/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb><c:/Users/ottoi/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb><c:/Users/ottoi/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb><c:/Users/ottoi/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/bera/fvsb8a.pfb><c:/Users/ottoi/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/bera/fvsr8a.pfb><c:/Users/ottoi/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr8t.pfb>
-Output written on report.pdf (11 pages, 3607665 bytes).
+Output written on report.pdf (12 pages, 3606567 bytes).
 PDF statistics:
- 223 PDF objects out of 1000 (max. 8388607)
- 175 compressed objects within 2 object streams
- 38 named destinations out of 1000 (max. 500000)
- 77902 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 243 PDF objects out of 1000 (max. 8388607)
+ 194 compressed objects within 2 object streams
+ 45 named destinations out of 1000 (max. 500000)
+ 77926 words of extra memory for PDF output out of 89155 (max. 10000000)
 
