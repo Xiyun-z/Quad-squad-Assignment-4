@@ -101,7 +101,6 @@ The packages we will be using in this analysis are @tidyverse, @readr, @kableExt
 ```{r,echo=FALSE, message= FALSE, warining = FALSE}
 ##data sanitize 
 covid_data <- read_csv("/Users/jojo/Desktop/Assignment-4/Data/owid-covid-data.csv")
-  
 f_d<-filter(covid_data, date >= as.Date("2021-01-30"))
 
 COVID_dat_after_sanitize<- select(f_d,location|continent|  date|people_fully_vaccinated|people_fully_vaccinated_per_hundred|new_cases|total_cases|new_deaths|new_deaths_per_million|total_deaths_per_million)  %>% 
@@ -118,8 +117,14 @@ sum_cases<-COVID_dat_after_sanitize%>%
  
 sum_cases %>% ggplot(aes(x=date, y=daily_new_cases), 
   options(repr.plot.width=8, repr.plot.height=8))+
-            geom_line(aes(col=continent)) +ggtitle("Daily new cases COVID-19" )
+            geom_line(aes(col=continent))
 ```
+
+
+
+
+
+
 
 
 \clearpage
