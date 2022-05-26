@@ -47,33 +47,45 @@ output:
 ```{r , echo = FALSE, message = FALSE, warning = FALSE}
 # Libraries
 
-library(tidyverse)
-library(readr)
-library(kableExtra)
-library(bookdown)
+library(rmarkdown) 
+library(bookdown) 
+library(readr) 
+library(bookdown) 
+library(kableExtra) 
+library(dplyr) 
+library(knitr) 
+library(ggplot2) 
+library(plotly) 
 
 ```
 
 
 \clearpage
-# **Data set introduction** 
+# **Introduction** 
 
-The data set for this report was obtained from the World Bank database, and it contains the following information:
+Since the first outbreak of Covid-19 in late 2019, there have been more than 500 million confirmed cases. To curb the spread, governments around the world had taken several measures like imposing restrictions on travelling, lockdown, and introducing social-distance. 
 
-  \begin{itemize}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-  \end{itemize}
+To bring this pandemic to an end, a large share of the world needs to be immune to the virus. The safest way to achieve this is with a vaccine. Vaccines are a technology that humanity has often relied on in the past to bring down the death toll of infectious diseases.
+
+Fortunately in 2021, COVID-19 vaccines were introduced, it would require an incredibly-high vaccination rate to reduce the spread of the virus. Although the vaccines are not able to prevent infection, yet they are efficient at keeping the mortality rate low. “You may wonder if the vaccine is so effective, why are we still having a growth in the infection rate.”
+
+We collected data from a public data base in github [COVID-19 data](https://github.com/owid/covid-19-data/tree/master/public/data). In this report, we would like to focus on overall COVID-19 analysis and relationship between the pandemic and the vaccination by the world range. 
+
+The packages we will be using in this analysis are @tidyverse, @readr, @kableExtra, @bookdown, @bookdown2, and @ggplot2
+
 
 
 \clearpage
 
 # **Research questions** :
 
+##The overall analysis of covid-19.
+
+##The Effects of government policies on the spread of COVID- 19 worldwide. 
+
+##How do positive cases change relate to vaccination? 
+
+##How do death rates from COVID-19 differ between people who are vaccinated and those who are not?  
 
 
 
@@ -82,8 +94,19 @@ The data set for this report was obtained from the World Bank database, and it c
 
 # **Exploratory data analysis** 
 
-\section*{}
+\section*{The overall analysis of covid-19}
 
+
+```{r,echo=FALSE, message= FALSE, warining = FALSE}
+##data sanitize 
+covid_data <- read_csv("/Users/jojo/Desktop/Assignment-4/Data/owid-covid-data.csv")
+  
+f_d<-filter(covid_data, date >= as.Date("2021-01-30"))
+
+COVID_dat_after_sanitize<- select(f_d,location|continent|  date|people_fully_vaccinated|people_fully_vaccinated_per_hundred|new_cases|total_cases|new_deaths|new_deaths_per_million|total_deaths_per_million)  %>% 
+  na.omit()
+
+```
 
 
 
