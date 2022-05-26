@@ -194,3 +194,5 @@ Plot chart \@ref(fig:fig3) was generate to explore relationship between vaccinat
 
 **CONCLUSIONS**
 
+The vaccination seems to not affect the spread of the virus due to mutation.
+
