@@ -44,6 +44,20 @@ output:
     toc: false
 ---
 
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      eval = TRUE,
+                      message = FALSE,
+                      warning = FALSE,
+                      error = FALSE,
+                      fig.align = "center",
+                      fig.width = 6, 
+                      fig.height = 3.5)
+```
+
+
+
 ```{r , echo = FALSE, message = FALSE, warning = FALSE}
 # Libraries
 
@@ -51,9 +65,20 @@ library(tidyverse)
 library(readr)
 library(kableExtra)
 library(bookdown)
+library(dplyr)
+library(knitr)
+library(ggplot2)
 
 ```
 
+
+```{r echo = FALSE, message = FALSE, warning = FALSE, results = 'hide'}
+# Read data
+dat <- read.csv(file = "Data/COVID_dat_after_sanitize.csv") 
+
+# NA summary
+summary(is.na(dat))
+``` 
 
 \clearpage
 # **Data set introduction** 
@@ -114,15 +139,58 @@ Question 1
 
 \clearpage
 
+**Research Question 3**
 
-\section*{}
+\section*{ How do positive cases change relate to vaccination?}
+
+\subsection*{top 5 countries with highest daily new cases}
+
+```{r tab-vax-cases, echo = FALSE, message = FALSE, warning = FALSE, results = 'hide',fig.cap= "top 5 countries with highest daily cases"}
+
+sum_dat1 <- dat %>% 
+  group_by(location)%>%
+  mutate(new_people_fully_vaccinated = people_fully_vaccinated- lag(people_fully_vaccinated))%>%
+  summarise(mean_daily_cases = round(mean(new_cases),digit = 0),
+         mean_new_vax = round(mean(new_people_fully_vaccinated, na.rm = TRUE,),digits = 0))%>%
+  arrange(desc(mean_daily_cases))
+  kable(head(sum_dat1,5),  caption = "top 5 countries with highest daily cases", booktabs = T) %>%
+  kable_styling(latex_options = c("striped", "hold_position"))
+  
+top5 <- dat%>%
+  filter(location %in% c("United States", "India", "France", "Germany", "Brazil"))%>%
+  select(!X)
+```
 
 
 
+\subsection*{Trend of trend of new cases vs fully vaccinated}
+```{r trend-vax-cases, echo = FALSE, message = FALSE, warning = FALSE, results = 'hide' ,fig.cap = "trend of new cases vs fully vaccinated"}
+p1<-ggplot(data = top5, aes(x = base::as.Date(date), y = new_cases, colour = location ))+
+  geom_line() +
+  theme_bw() +
+  labs(y = "New Cases", x="Date")
 
-\section*{}
+p2<-ggplot(data = top5, aes(x = base::as.Date(date), y = people_fully_vaccinated, colour = location))+
+  geom_line() +
+  theme_bw() +
+  labs(y = "People Fully Vaccinated", x="Date")
+       
+
+                
+gridExtra::grid.arrange(p1, p2, nrow=2)    
+```
 
 
+\subsection*{Trend of trend of new cases vs fully vaccinated}
 
+```{r vax-cases, echo = FALSE, message = FALSE, warning = FALSE, results = 'hide' ,fig.cap = "correlation between new cases vs fully vaccinated"}
+ggplot(data = top5, aes(x=people_fully_vaccinated, y =new_cases, colour = location))+
+  geom_point()+
+  geom_smooth(color="black", se=FALSE)+
+  hrbrthemes::theme_ipsum()+
+  labs(x = "people fully vaccinated" , y = "new daily cases")+
+  facet_wrap(~location, scales = "free")
+
+```
 **CONCLUSIONS**
 
