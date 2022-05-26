@@ -82,45 +82,38 @@ The data set for this report was obtained from the World Bank database, and it c
 
 # **Exploratory data analysis** 
 
-\section*{}
+```{r}
+library(tidyverse)
+```
+
+```{r}
+dat <- read_csv(here::here("Data/owid-covid-data.csv")) %>%
+  select(continent, date, total_cases, new_cases, total_deaths, new_deaths, stringency_index) %>%
+  na.omit()
+
+dat
+```
 
 
+\section*{Effects of government policies on the spread of COVID-19 worldwide}
 
+\subsection*{Stringency Index}
 
+Before the availability of the vaccination, the most commons measures against the COVID-19 is the use of restrictions implemented by the government. The Oxford Covid-19 Government Response Tracker (hale_angrist_goldszmidt_kira_petherick_phillips_webster_cameron-blake_hallas_majumdar_et al._2021) calculates the Stringency Index, which is a composite measure of nine of the response metrics. 
 
+```{r stringency-index, echo = FALSE, fig.align = "center", fig.width = 6, fig.height = 3, fig.cap = "The Stringency Index overtime for each Continent"}
+dat %>%
+  select(continent, date, stringency_index) %>%
+  group_by(month = lubridate::floor_date(date, "month"), continent) %>%
+  summarise(mean = mean(stringency_index),
+            .groups = 'drop') %>%
+  ggplot(aes(x = month, y = mean, colour = continent)) +
+  geom_line() +
+  theme_bw() +
+  labs(x = "Time", y = "Stringency Index", color = "Continent", title = "The stingency index overtime")
+```
 
-\clearpage
-
-
-\section*{}
-
-Question 1
-
-
-
-\clearpage
-
-
-
-
-
-**Research Question 2**
-
-
-
-
-
-
-
-\clearpage
-
-
-\section*{}
-
-
-
-
-\section*{}
+From Figure \@ref(fig:stringency-index) we can see that each continent has a response to COVID-19 at a different time. Asia continent is the first continent to have the restriction, this is because the COVID-19 was first identified in China which is in Asia. Then the WHO (@world health organization) declared COVID-19 as a public health emergency of international concern on 30 January 2020, that is when we can see that other continents start to apply the restriction. Then on 11 March 2020 WHO assessed that COVID-19 could be characterized as a pandemic that is the month before we see the spike in the stringency index. 
 
 
 
