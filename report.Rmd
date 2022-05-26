@@ -44,7 +44,6 @@ output:
     toc: false
 ---
 
-
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(echo = FALSE,
                       eval = TRUE,
@@ -56,11 +55,8 @@ knitr::opts_chunk$set(echo = FALSE,
                       fig.height = 3.5)
 ```
 
-
-
 ```{r , echo = FALSE, message = FALSE, warning = FALSE}
 # Libraries
-
 library(rmarkdown) 
 library(bookdown) 
 library(readr) 
@@ -70,22 +66,26 @@ library(dplyr)
 library(knitr) 
 library(ggplot2) 
 library(tidyverse)
-
 ```
 
-```{r message=FALSE,warning=FALSE, echo=FALSE}
+```{r, message=FALSE,warning=FALSE, echo=FALSE}
 data <- read.csv(here::here("Data/owid-covid-data.csv"))
-
 ```
 
 
-```{r echo = FALSE, message = FALSE, warning = FALSE, results = 'hide'}
+```{r, echo = FALSE, message = FALSE, warning = FALSE, results='hide'}
 # Read data
-dat <- read.csv(file = "Data/COVID_dat_after_sanitize.csv") 
+dat <- read.csv(here::here("Data/COVID_dat_after_sanitize.csv")) 
 
 # NA summary
 summary(is.na(dat))
 ``` 
+
+```{r, echo = FALSE, message=FALSE, warning = FALSE}
+dat_2 <- read_csv(here::here("Data/owid-covid-data.csv")) %>%
+  select(continent, date, total_cases, new_cases, total_deaths, new_deaths, stringency_index) %>%
+  na.omit()
+```
 
 \clearpage
 # **Introduction** 
@@ -121,11 +121,6 @@ The packages we will be using in this analysis are @tidyverse, @readr, @kableExt
 
 **4)How do death rates from COVID-19 differ between people who are vaccinated and those who are not?**
 
-
-
-
-
-\clearpage
 
 ## **The overall analysis of covid-19**
 
@@ -198,9 +193,6 @@ The overall of graph \@ref(fig:Figure2) show a decline trend of average daily de
 
 
 ```{r Table2,  echo = FALSE, warning = FALSE} 
-
-#options(digits=0)
-
 sum %>% select(location,`average daily deaths`) %>% 
   arrange(round(desc(`average daily deaths`)), 0) %>%
     slice(1:5) %>% 
@@ -238,6 +230,42 @@ The barplot \@ref(fig:Figure3) shows the fully vaccination rate by regions. Exce
 \clearpage
 
 
+\section*{Effects of government policies on the spread of COVID-19 worldwide}
+
+\subsection*{Stringency Index}
+
+Before the availability of the vaccination, the most commons measures against the COVID-19 is the use of restrictions implemented by the government. The Oxford Covid-19 Government Response Tracker (@OxCGRT) calculates the Stringency Index, which is a composite measure of nine of the response metrics. The higher index score indicates a stricter response (i.e. 100 = strictest response).
+
+```{r stringency-index, echo = FALSE, fig.align = "center", fig.width = 6, fig.height = 3, fig.cap = "The Stringency Index overtime for each Continent"}
+dat_2 %>%
+  select(continent, date, stringency_index) %>%
+  group_by(month = lubridate::floor_date(date, "month"), continent) %>%
+  summarise(mean = mean(stringency_index),
+            .groups = 'drop') %>%
+  ggplot(aes(x = month, y = mean, colour = continent)) +
+  geom_line() +
+  theme_bw() +
+  labs(x = "Time", y = "Stringency Index", color = "Continent", title = "The stingency index overtime")
+```
+
+From Figure \@ref(fig:stringency-index) we can see that each continent has a response to COVID-19 at a different time. Asia continent is the first continent to have the restriction, this is because the COVID-19 was first identified in China which is in Asia. Then the WHO (@who) declared COVID-19 as a public health emergency of international concern on 30 January 2020, that is when we can see that other continents start to apply the restriction. Then on 11 March 2020 WHO assessed that COVID-19 could be characterized as a pandemic that is the month before we see the spike in the stringency index. As mentioned in the section above, there is three outbreak in the plot, every time there is a COVID-19 outbreak the stringency index also increases.
+
+\subsection*(Effect of restriction on the total number of COVID cases)
+
+```{r relationship-tot-index, echo = FALSE, fig.align = "center", fig.width = 6, fig.height = 3, fig.cap = "Relationship between total cases(log transformed) and stringency index"}
+dat_2 %>%
+  select(continent, total_cases, stringency_index) %>%
+  ggplot(aes(x = stringency_index, y = log(total_cases))) +
+  geom_point() +
+  geom_smooth() +
+  facet_wrap(~continent, scales = "free") +
+  labs(x = "Stringency Index", y = "Total Cases (log transformation)", 
+       title = "Relationship between Total Cases and Stringency index")
+```
+
+We used log transformation on the number of cases to transform the skewed data. In Figure \@ref (fig:relationship-tot-index), we can see that there is a non-linear relationship between total cases and stringency index. The total case number keeps climbing even after implementing the restriction. Then it dropped as the restriction get stricter. This is because most of the time the government will start with the lower level of restriction but this won’t have much effect on reducing the number of COVID-19 cases since the transmission of the COVID will occur before the lockdown started. Then, as the restriction increases and the longer people are staying at home, the number of total cases decreases. Therefore, we see the number of total cases climbing at first before the number goes down.
+
+\clearpage
 
 \section*{ How do positive cases change relate to vaccination?}
 
@@ -246,8 +274,6 @@ The barplot \@ref(fig:Figure3) shows the fully vaccination rate by regions. Exce
 
 
 ```{r table3, echo = FALSE, message = FALSE, warning = FALSE,fig.cap= "top 10 countries with highest daily cases"}
-#options(digits = 0)
-
 sum_dat1<-dat %>% 
   group_by(location)%>%
   mutate(new_people_fully_vaccinated = people_fully_vaccinated- lag(people_fully_vaccinated))%>%
@@ -302,7 +328,6 @@ ggplot(data = top5, aes(x=people_fully_vaccinated, y = new_cases))+
   geom_smooth()+
   labs(x = "people fully vaccinated" , y = "new daily cases")+
   facet_wrap(~location, scales = "free")
-
 ```
 
 
@@ -341,7 +366,6 @@ table1 <- data2 %>%
  kable(table1, caption = "Average daily vaccinations and deaths for the countries with highest death rates.") %>% 
   kable_classic(full_width = F, html_font = "Cambria") %>% 
     kable_styling(latex_options = c("striped", "hold_position"))
-
 ```
 
 Table \@ref(tab:table) shows the average daily vaccinations and deaths for the countries with highest death rates. We can see that **United States** has the highest deaths per day of *1264* while **India** has the highest average vaccinations per day of approx *4057187*.
@@ -355,7 +379,6 @@ ggplot(data2, aes(x= (people_fully_vaccinated),
   theme(axis.text.x = element_text(angle = 45,hjust = 1)) +
   xlab("Number of people fully vaccinated")+
   ylab("New Deaths")
-
 ```
 
 
@@ -364,16 +387,6 @@ From the figure \@ref(fig:graph) we can clearly see that in countries like Brazi
 For the countries like Russia and United States the case is a little different as the vaccinations have increased but the number of deaths due to COVID-19 have remained constant or have increased. This may be due to many reasons such as the vaccine that was being used in the particular country, the immunity of the individual at the given location and the other Comorbidities they had. Also, the vaccine was designed using the first strain of COVID-19 virus and mutations caused in the virus might have affected the efficacy of the vaccine. 
 
 A research published @paper also confirmed that double vaccination against COVID-19 will decrease the death rate by 74.89 %
-
-
-
-\clearpage
-\section*{}
-
-
-
-\clearpage
-\section*{}
 
 
 
