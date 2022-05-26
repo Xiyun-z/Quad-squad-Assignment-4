@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.17)  23 MAY 2022 12:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.17)  26 MAY 2022 16:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1165,7 +1165,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-<Figures/logo.jpg, id=16, 1610.015pt x 788.9475pt>
+<Figures/logo.jpg, id=32, 1610.015pt x 788.9475pt>
 File: Figures/logo.jpg Graphic file (type jpg)
 <use Figures/logo.jpg>
 Package pdftex.def Info: Figures/logo.jpg  used on input line 295.
@@ -1421,73 +1421,108 @@ Overfull \hbox (56.23262pt too wide) detected at line 295
 
 {/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Figur
 es/logo.jpg>]
-LaTeX Font Info:    Trying to load font information for TS1+mdbch on input line
- 306.
-(/usr/local/texlive/2020/texmf-dist/tex/latex/mathdesign/mdbch/ts1mdbch.fd
-File: ts1mdbch.fd 2013/08/29 Fontinst v1.933 font definitions for TS1/mdbch.
-)
-LaTeX Font Info:    Font shape `TS1/mdbch/m/n' will be
-(Font)              scaled to size 10.51207pt on input line 306.
+
+LaTeX Warning: Citation 'tidyverse' on page 2 undefined on input line 310.
+
+LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
+(Font)              scaled to size 10.51207pt on input line 310.
+
+LaTeX Warning: Citation 'readr' on page 2 undefined on input line 310.
+
+
+LaTeX Warning: Citation 'kableExtra' on page 2 undefined on input line 310.
+
+
+LaTeX Warning: Citation 'bookdown' on page 2 undefined on input line 310.
+
+
+LaTeX Warning: Citation 'bookdown2' on page 2 undefined on input line 310.
+
+
+LaTeX Warning: Citation 'ggplot2' on page 2 undefined on input line 310.
+
 [2
 
 ] [3
 
-] [4
+]
+<report_files/figure-latex/Figure 1-1.pdf, id=58, 417.56pt x 349.305pt>
+File: report_files/figure-latex/Figure 1-1.pdf Graphic file (type pdf)
+<use report_files/figure-latex/Figure 1-1.pdf>
+Package pdftex.def Info: report_files/figure-latex/Figure 1-1.pdf  used on inpu
+t line 338.
+(pdftex.def)             Requested size: 417.55896pt x 349.30414pt.
+LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
+(Font)              scaled to size 10.51207pt on input line 342.
+<report_files/figure-latex/Figure 2-1.pdf, id=59, 417.56pt x 349.305pt>
+File: report_files/figure-latex/Figure 2-1.pdf Graphic file (type pdf)
+<use report_files/figure-latex/Figure 2-1.pdf>
+Package pdftex.def Info: report_files/figure-latex/Figure 2-1.pdf  used on inpu
+t line 368.
+(pdftex.def)             Requested size: 417.55896pt x 349.30414pt.
 
-] [5
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<report_files/figure-latex/Figure 3-1.pdf, id=60, 421.575pt x 349.305pt>
+File: report_files/figure-latex/Figure 3-1.pdf Graphic file (type pdf)
+<use report_files/figure-latex/Figure 3-1.pdf>
+Package pdftex.def Info: report_files/figure-latex/Figure 3-1.pdf  used on inpu
+t line 398.
+(pdftex.def)             Requested size: 421.57396pt x 349.30414pt.
+[4
+
+ <./report_files/figure-latex/Figure 1-1.pdf>] [5 <./report_files/figure-latex/
+Figure 2-1.pdf>] [6 <./report_files/figure-latex/Figure 3-1.pdf>] [7
 
 ]
-LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 10.51207pt on input line 333.
-[6
+
+LaTeX Warning: Empty bibliography on input line 419.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 421.
+[8
+
 
 ]
-
-LaTeX Warning: Empty bibliography on input line 343.
-
-
-Package caption Warning: Unused \captionsetup[figure] on input line 60.
-See the caption package documentation for explanation.
-
-
-Package caption Warning: Unused \captionsetup[table] on input line 61.
-See the caption package documentation for explanation.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 345.
-[7
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 345.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 421.
 (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 345.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 345.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 421.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 421.
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 9A7A484C0D00EF7338C4048F533A1E1E;513.
+(rerunfilecheck)             Checksum: B498EE251C01A7EB77BC117A43D3B67E;2152.
+
+LaTeX Warning: There were undefined references.
+
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                report
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'report.run.xml'.
 \openout1 = `report.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 345.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 421.
  ) 
 Here is how much of TeX's memory you used:
- 26225 strings out of 480608
- 427494 string characters out of 5903630
- 1096166 words of memory out of 5000000
- 41598 multiletter control sequences out of 15000+600000
- 622142 words of font info for 158 fonts, out of 8000000 for 9000
+ 26491 strings out of 480608
+ 432951 string characters out of 5903630
+ 1099711 words of memory out of 5000000
+ 41810 multiletter control sequences out of 15000+600000
+ 626642 words of font info for 185 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 45i,14n,56p,1195b,792s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 45i,14n,90p,1195b,1146s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/ly1/texnansi.enc}{/usr/lo
 cal/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/202
 0/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.enc}</usr/local/texlive
 /2020/texmf-dist/fonts/type1/public/fontawesome/FontAwesome.pfb></usr/local/tex
 live/2020/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/local/texliv
 e/2020/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/local/texlive/2
-020/texmf-dist/fonts/type1/public/bera/fvsb8a.pfb></usr/local/texlive/2020/texm
-f-dist/fonts/type1/public/bera/fvsr8a.pfb>
-Output written on report.pdf (7 pages, 140143 bytes).
+020/texmf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb></usr/local/texlive/202
+0/texmf-dist/fonts/type1/public/bera/fvsb8a.pfb></usr/local/texlive/2020/texmf-
+dist/fonts/type1/public/bera/fvsr8a.pfb>
+Output written on report.pdf (8 pages, 207509 bytes).
 PDF statistics:
- 82 PDF objects out of 1000 (max. 8388607)
- 66 compressed objects within 1 object stream
- 14 named destinations out of 1000 (max. 500000)
- 24606 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 143 PDF objects out of 1000 (max. 8388607)
+ 115 compressed objects within 2 object streams
+ 28 named destinations out of 1000 (max. 500000)
+ 30797 words of extra memory for PDF output out of 35830 (max. 10000000)
 

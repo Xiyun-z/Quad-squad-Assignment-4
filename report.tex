@@ -296,41 +296,117 @@
 
 \clearpage
 
-\hypertarget{data-set-introduction}{%
-\section{\texorpdfstring{\textbf{Data set introduction}}{Data set introduction}}\label{data-set-introduction}}
+\hypertarget{introduction}{%
+\section{\texorpdfstring{\textbf{Introduction}}{Introduction}}\label{introduction}}
 
-The data set for this report was obtained from the World Bank database, and it contains the following information:
+Since the first outbreak of Covid-19 in late 2019, there have been more than 500 million confirmed cases. To curb the spread, governments around the world had taken several measures like imposing restrictions on travelling, lockdown, and introducing social-distance.
 
-\begin{itemize}
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-    \item 
-  \end{itemize}
+To bring this pandemic to an end, a large share of the world needs to be immune to the virus. The safest way to achieve this is with a vaccine. Vaccines are a technology that humanity has often relied on in the past to bring down the death toll of infectious diseases.
+
+Fortunately in 2021, COVID-19 vaccines were introduced, it would require an incredibly-high vaccination rate to reduce the spread of the virus. Although the vaccines are not able to prevent infection, yet they are efficient at keeping the mortality rate low. ``You may wonder if the vaccine is so effective, why are we still having a growth in the infection rate.''
+
+We collected data from a public data base in github \href{https://github.com/owid/covid-19-data/tree/master/public/data}{COVID-19 data}. In this report, we focus on overall COVID-19 analysis and explore the relationship between the pandemic and the vaccination by the world range.
+
+The packages we will be using in this analysis are \textcite{tidyverse}, \textcite{readr}, \textcite{kableExtra}, \textcite{bookdown}, \textcite{bookdown2}, and \textcite{ggplot2}
 
 \clearpage
 
 \hypertarget{research-questions}{%
 \section{\texorpdfstring{\textbf{Research questions} :}{Research questions :}}\label{research-questions}}
 
+\hypertarget{the-overall-analysis-of-covid-19.}{%
+\subsection{The overall analysis of covid-19.}\label{the-overall-analysis-of-covid-19.}}
+
+\hypertarget{the-effects-of-government-policies-on-the-spread-of-covid--19-worldwide.}{%
+\subsection{The Effects of government policies on the spread of COVID- 19 worldwide.}\label{the-effects-of-government-policies-on-the-spread-of-covid--19-worldwide.}}
+
+\hypertarget{how-do-positive-cases-change-relate-to-vaccination}{%
+\subsection{How do positive cases change relate to vaccination?}\label{how-do-positive-cases-change-relate-to-vaccination}}
+
+\hypertarget{how-do-death-rates-from-covid-19-differ-between-people-who-are-vaccinated-and-those-who-are-not}{%
+\subsection{How do death rates from COVID-19 differ between people who are vaccinated and those who are not?}\label{how-do-death-rates-from-covid-19-differ-between-people-who-are-vaccinated-and-those-who-are-not}}
+
 \clearpage
 
 \hypertarget{exploratory-data-analysis}{%
 \section{\texorpdfstring{\textbf{Exploratory data analysis}}{Exploratory data analysis}}\label{exploratory-data-analysis}}
 
-\section*{}
+\section*{The overall analysis of covid-19}
+
+\begin{figure}
+
+{\centering \includegraphics{report_files/figure-latex/Figure 1-1} 
+
+}
+
+\caption{COVID-19 Daily new cases}(\#fig:Figure 1)
+\end{figure}
+
+\begin{table}[!h]
+
+\caption{(\#tab:Table 1)Countries with Highest Average Daily Cases}
+\centering
+\begin{tabular}[t]{l|r}
+\hline
+location & average daily cases\\
+\hline
+\cellcolor{gray!6}{United States} & \cellcolor{gray!6}{120485}\\
+\hline
+India & 70729\\
+\hline
+\cellcolor{gray!6}{France} & \cellcolor{gray!6}{56649}\\
+\hline
+Germany & 50097\\
+\hline
+\cellcolor{gray!6}{Brazil} & \cellcolor{gray!6}{46861}\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{figure}
+
+{\centering \includegraphics{report_files/figure-latex/Figure 2-1} 
+
+}
+
+\caption{Average daily deaths attributed to COVID-19}(\#fig:Figure 2)
+\end{figure}
+
+\begin{table}[!h]
+
+\caption{\label{tab:Table-2}COVID-19 Highest Average Daily Deaths Countries}
+\centering
+\begin{tabular}[t]{l|r}
+\hline
+location & average daily deaths\\
+\hline
+\cellcolor{gray!6}{United States} & \cellcolor{gray!6}{1201}\\
+\hline
+Brazil & 978\\
+\hline
+\cellcolor{gray!6}{India} & \cellcolor{gray!6}{798}\\
+\hline
+Russia & 662\\
+\hline
+\cellcolor{gray!6}{Mexico} & \cellcolor{gray!6}{396}\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{figure}
+
+{\centering \includegraphics{report_files/figure-latex/Figure 3-1} 
+
+}
+
+\caption{People fully vaccinated in percentage by region}(\#fig:Figure 3)
+\end{figure}
 
 \clearpage
 
 \section*{}
 
-Question 1
-
 \clearpage
-
-\textbf{Research Question 2}
 
 \clearpage
 
