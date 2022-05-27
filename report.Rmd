@@ -99,7 +99,7 @@ Fortunately in 2021, COVID-19 vaccines were introduced, it would require an incr
 
 We collected data from a public data base in github [COVID-19 data](https://github.com/owid/covid-19-data/tree/master/public/data). In this report, we focus on overall COVID-19 analysis and explore the relationship between the pandemic and the vaccination by the world range. 
 
-The packages we will be using in this analysis are bookdown(@bookdown), readr(@readr), kableExtra(@kableExtra), ggplot2(@ggplot2), tidyverse(@tidyverse), and lubridate(@lubridate)
+The packages we will be using in this analysis are bookdown (@bookdown), readr (@readr), kableExtra (@kableExtra), ggplot2 (@ggplot2), tidyverse (@tidyverse), and lubridate (@lubridate)
 
 
 \clearpage
@@ -107,17 +107,21 @@ The packages we will be using in this analysis are bookdown(@bookdown), readr(@r
 
 # **Research questions** :
 
-
-## **The overall analysis of COVID-19.**
-
-
-## **The Effects of government policies on the spread of COVID- 19 worldwide.**
+With the introduction of the COVID-19 vaccines, we want to see whether the use of vaccines or the use of the restriction will be better at fighting against COVID-19?
 
 
-## **How do positive cases change relate to vaccination?**
+The report will be divided into different sections to explore the research question.
+
+(1) **The overall analysis of COVID-19.**
 
 
-## **How do death rates from COVID-19 differ between people who are vaccinated and those who are not?**
+(2) **The Effects of government policies on the spread of COVID- 19 worldwide.**
+
+
+(3) **How do positive cases change relate to vaccination?**
+
+
+(4) **How do death rates from COVID-19 differ between people who are vaccinated and those who are not?**
 
 
 \clearpage
@@ -358,7 +362,7 @@ For the countries like Russia and United States the case is a little different a
 A research published @paper also confirmed that double vaccination against COVID-19 will decrease the death rate by 74.89 %
 
 
-# **CONCLUSIONS**
+# **CONCLUSION**
 
 Globally, after the decline in the number of total cases since the end of March 2022, new daily COVID-19 cases have stabilized in the latest weeks and the number of deaths continues to decline. The introduction of Vaccines in 2021, raises the question of whether restrictions will still be effective against the spread of the COVID-19. In this report we can see that the restriction policies can reduce the spread of the virus, however, this method does not have an immediate effect as the spread occurs before the restriction. We also found that the vaccination seems to not affect the spread of the virus due to the mutation. It is clear that vaccination against COVID-19 is not the best method to reduce the number of cases but it is still one of the best and safest ways to reduces the number of deaths.
 
