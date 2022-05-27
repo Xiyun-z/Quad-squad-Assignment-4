@@ -55,6 +55,7 @@ knitr::opts_chunk$set(echo = FALSE,
                       fig.height = 3.5)
 
 options(scipen = 100)
+options(digits = 0)
 ```
 
 ```{r , echo = FALSE, message = FALSE, warning = FALSE}
@@ -130,7 +131,7 @@ The report will be divided into different sections to explore the research quest
 # **Exploratory data analysis** 
 
 
-\section*{The overall analysis of covid-19} 
+## **The overall analysis of covid-19**
 
 
 ```{r Figure1, echo= FALSE, warning = FALSE, fig.align="center", fig.cap ="COVID-19 Daily new cases"}
@@ -212,7 +213,7 @@ The barplot \@ref(fig:Figure3) shows the fully vaccination rate by regions. Exce
 \clearpage
 
 
-\section*{Effects of government policies on the spread of COVID-19 worldwide}
+## **Effects of government policies on the spread of COVID-19 worldwide**
 
 
 \subsection*{Stringency Index}
@@ -258,10 +259,10 @@ We used log transformation on the number of cases to transform the skewed data. 
 \clearpage
 
 
-\section*{ How do positive cases change relate to vaccination?}
+## **How do positive cases change relate to vaccination?**
 
 
-\subsection*{top 5 countries with highest daily new cases}
+\subsection*{Top 5 countries with highest daily new cases}
 
 
 ```{r table3, echo = FALSE, message = FALSE, warning = FALSE,fig.cap= "top 10 countries with highest daily cases"}
@@ -326,7 +327,7 @@ Plot chart \@ref(fig:figure5) was generate to explore relationship between vacci
 \clearpage
 
 
-\section*{ How do death rates from COVID-19 differ between people who are vaccinated and those who are not}
+## **How do death rates from COVID-19 differ between people who are vaccinated and those who are not**
 
 
 ```{r table, echo=FALSE, message=FALSE, warning=FALSE}
