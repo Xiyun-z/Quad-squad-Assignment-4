@@ -48,7 +48,6 @@ output:
 # Libraries
 
 library(rmarkdown) 
-library(bookdown) 
 library(readr) 
 library(bookdown) 
 library(kableExtra) 
@@ -100,11 +99,9 @@ The packages we will be using in this analysis are @tidyverse, @readr, @kableExt
 ## **The overall analysis of covid-19**
 
 
-
-
 ```{r,echo=FALSE, include = FALSE, message= FALSE, warining = FALSE}
 ##data sanitize 
-covid_data <- read_csv("/Users/jojo/Desktop/Assignment-4/Data/owid-covid-data.csv")
+covid_data <- read_csv("Data/owid-covid-data.csv")
 f_d<-filter(covid_data, date >= as.Date("2021-01-30"))
 
 COVID_dat_after_sanitize<- select(f_d,location|continent|  date|people_fully_vaccinated|people_fully_vaccinated_per_hundred|new_cases|total_cases|new_deaths|new_deaths_per_million|total_deaths_per_million)  %>% 
